@@ -1,0 +1,14 @@
+.navigation {
+    display: flex;
+    background-color: purple;
+    list-style-type: none;
+}
+
+.navigation__link {
+    padding: 10px;
+    background-color: pink;
+}
+
+.navigation__link:not(:last-child) {
+    margin-right: 10px;
+}

@@ -1,0 +1,18 @@
+.main-page__portal-description {
+    padding: 30px;
+    text-align: center;
+    border: 1px solid black;
+}
+
+.main-page__author-of-the-day {
+    padding: 30px;
+    text-align: center;
+    border: 1px solid black;
+    margin: 10px 0px;
+}
+
+.main-page__team-description {
+    display: flex;
+    list-style-type: none;
+    flex-wrap: wrap;
+}
