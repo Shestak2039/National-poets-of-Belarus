@@ -19,10 +19,16 @@ const PersonFromTeam = (props) => {
 
 PersonFromTeam.propTypes = {
   photo: PropTypes.string,
+  githubAccount: PropTypes.string,
+  nickname: PropTypes.string,
+  contribution: PropTypes.string,
 };
 
 PersonFromTeam.defaultProps = {
   photo: 'Something photo',
+  githubAccount: 'Something github account',
+  nickname: 'Something',
+  contribution: 'Something contribution',
 };
 
 export default PersonFromTeam;
