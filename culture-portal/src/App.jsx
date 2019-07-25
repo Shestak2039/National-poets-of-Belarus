@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter, Route } from "react-router-dom";
+import { BrowserRouter, Route } from 'react-router-dom';
 
 import Navigation from './components/navigation/Navigation';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
@@ -12,7 +12,7 @@ import './App.css';
 function App() {
   return (
     <BrowserRouter>
-      <Route component = {Navigation} />
+      <Route component={Navigation} />
       <Route component={ContentWrapper}>
         <Route exact path="/" component={MainPage} />
         <Route path="/authors/" component={AuthorsWrapper} />
