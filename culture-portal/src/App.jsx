@@ -9,21 +9,21 @@ import Author from './components/Authors/1/index';
 
 import './App.css';
 
-function App() {
-  return (
-    <BrowserRouter>
-      <Route component={Navigation} />
-      <Route component={ContentWrapper}>
-        <Route exact path="/" component={MainPage} />
-        <Route path="/authors/" component={AuthorsWrapper} />
-        <Route path="/1" component={Author} />
-        <Route path="/2" component={Author} />
-        <Route path="/3" component={Author} />
-        <Route path="/4" component={Author} />
-        <Route path="/5" component={Author} />
+const App = () => (
+  <BrowserRouter>
+    <Route component={Navigation} />
+    <Route component={ContentWrapper}>
+      <Route exact path="/" component={MainPage} />
+      <Route>
+        <Route exact path="/authors" component={AuthorsWrapper} />
+        <Route path="/authors/1" component={Author} />
+        <Route path="/authors/2" component={Author} />
+        <Route path="/authors/3" component={Author} />
+        <Route path="/authors/4" component={Author} />
+        <Route path="/authors/5" component={Author} />
       </Route>
-    </BrowserRouter>
-  );
-}
+    </Route>
+  </BrowserRouter>
+);
 
 export default App;
