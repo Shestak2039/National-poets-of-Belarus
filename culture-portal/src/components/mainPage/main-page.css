@@ -1,18 +1,75 @@
-.main-page__portal-description {
-    padding: 30px;
-    text-align: center;
-    border: 1px solid black;
+* {
+  margin: 0;
+  padding: 0;
 }
 
-.main-page__author-of-the-day {
-    padding: 30px;
-    text-align: center;
-    border: 1px solid black;
-    margin: 10px 0px;
+.body {
+   background: #E5E5E5;
+}
+.main-page__container,.author-of-the-day-container   {
+  display: flex;
+  flex-direction: column;
+  width: 90vw;
+  margin: 0 auto;
 }
 
-.main-page__team-description {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
+.main-page__header, .author-of-the-day__header {
+  font-size: 2rem;
+  margin: 1vw 0;
+}
+
+.main-page__header {
+  text-align: center;
+}
+
+.main-page__description, .author-of-the-day__text-info{
+  padding: 30px 0;
+  text-align: justify;
+  font-size: 1.2rem;
+}
+
+.main-page__text, .author-of-the-day__text-info {
+  text-indent: 1.5rem;
+}
+
+
+.author-of-the-day-container {
+  display: flex;
+  flex-direction: row;
+  list-style-type: none;
+  flex-wrap: wrap;
+  box-shadow: -5px 5px 10px #cfcfd1;
+  margin: 2vw auto;
+}
+
+.author-of-the-day__text {
+  width: 70%;
+}
+
+.author-of-the-day-block-name {
+  font-style: normal;
+  font-weight: 500;
+  font-size: 1.5rem;
+  color: rgba(0, 0, 0, 0.6);
+  line-height: 32px;
+}
+.author-of-the-day__header {
+
+}
+
+.author-of-the-day__text-info {
+
+}
+
+.author-image-container {
+  margin: 10px;
+  width: 20%;
+}
+
+.author-of-the-day-image {
+
+  padding-left: 20px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 50%;
 }
