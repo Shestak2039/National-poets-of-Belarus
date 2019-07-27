@@ -1,13 +1,12 @@
 import React from 'react';
 
-import Navigation from './Navigation/Navigation';
-
+import NavigationUI from './Navigation/NavigationUI';
 import './header.css';
 
 const Header = () => (
   <header className="header">
-    <h1 className="title">CULTURE<br/>PORTAL</h1>
-    <Navigation />
+    <h1 className="title">CULTURE<br />PORTAL</h1>
+    <NavigationUI />
   </header>
 );
 

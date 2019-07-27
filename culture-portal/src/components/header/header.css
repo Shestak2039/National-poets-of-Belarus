@@ -1,3 +1,6 @@
+*{
+  opacity: 1 !important;
+}
 .header {
   display: flex;
   height: 80px;
@@ -10,4 +13,17 @@
   font-size: 16px;
   padding: 6px 40px;
   margin-left: 10px;
+}
+a{
+  text-decoration: none;
+}
+li{
+  list-style-type: none;
+}
+.MuiTab-wrapper{
+  color: rgb(255, 255, 255);
+}
+
+.MuiTabs-scroller {
+  position: inherit !important;
 }
