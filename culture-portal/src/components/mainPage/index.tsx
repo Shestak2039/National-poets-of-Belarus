@@ -2,7 +2,7 @@ import React from 'react';
 import authorImage from "../../assets/authorOfTheDay.jpg";
 import './main-page.css';
 
-const MainPage = () => (
+const Index = (): React.ReactChild => (
   <div className="main-page__container">
       <div className="main-page__description">
         <h2 className="main-page__header">Народные поэты Беларуси</h2>
@@ -34,4 +34,4 @@ const MainPage = () => (
   </div>
 );
 
-export default MainPage;
+export default Index;

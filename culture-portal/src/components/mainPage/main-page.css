@@ -67,7 +67,8 @@
 }
 
 .author-of-the-day-image {
-
+  width: 100%;
+  height: 100%;
   padding-left: 20px;
   display: flex;
   margin: 0 auto;
