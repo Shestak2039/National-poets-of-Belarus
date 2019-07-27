@@ -2,7 +2,7 @@ import React from 'react';
 import authorImage from "../../assets/authorOfTheDay.jpg";
 import './main-page.css';
 
-const Index = (): React.ReactChild => (
+const Index = (): JSX.Element => (
   <div className="main-page__container">
       <div className="main-page__description">
         <h2 className="main-page__header">Народные поэты Беларуси</h2>
