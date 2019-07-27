@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import { DataProps } from '../../../types/index';
 import './person-from-team.css';
 
-const PersonFromTeam = (props) => {
+const PersonFromTeam = (props: DataProps) => {
   const {
     photo, githubAccount, nickname, contribution,
   } = props;
