@@ -34,5 +34,12 @@
     "Blob": true,
     "navigator": true
   },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
+  },
   "parser": "babel-eslint"
 }
