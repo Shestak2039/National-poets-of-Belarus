@@ -1,16 +1,13 @@
-* {
-  margin: 0;
-  padding: 0;
-}
-
-.body {
-   background: #E5E5E5;
-}
 .main-page__container,.author-of-the-day-container   {
   display: flex;
-  flex-direction: column;
   width: 90vw;
   margin: 0 auto;
+  max-width: 1300px;
+
+}
+
+.main-page__container {
+  flex-direction: column;
 }
 
 .main-page__header, .author-of-the-day__header {
@@ -24,7 +21,6 @@
 
 .main-page__description, .author-of-the-day__text-info{
   padding: 30px 0;
-  text-align: justify;
   font-size: 1.2rem;
 }
 
@@ -35,16 +31,60 @@
 
 .author-of-the-day-container {
   display: flex;
-  flex-direction: row;
-  list-style-type: none;
-  flex-wrap: wrap;
   box-shadow: -5px 5px 10px #cfcfd1;
   margin: 2vw auto;
+  padding-top: 20px;
+  box-sizing: border-box;
 }
 
 .author-of-the-day__text {
-  width: 70%;
+  width: 60%;
+  padding-left: 20px;
 }
+
+.author-image-container {
+  margin: 10px;
+  display: flex;
+  align-items: center;
+  width: 40%;
+}
+
+.author-of-the-day-image {
+  width: 100%;
+  max-width: 250px;
+  min-width: 180px;
+  height: 100%;
+  max-height: 250px;
+  min-height: 180px;
+  padding-left: 20px;
+  display: flex;
+  margin: 0 auto;
+  border-radius: 50%;
+}
+
+@media screen and (max-width: 700px) {
+  .author-of-the-day-container {
+    flex-wrap: wrap;
+  }
+
+  .author-of-the-day__text {
+    width: 90%;
+  }
+
+  .author-image-container {
+    width: 100%;
+    display: flex;
+    margin: 0 auto;
+    padding-bottom: 50px;
+    justify-content: center;
+  }
+  .author-of-the-day-image {
+    padding: 0;
+  }
+
+}
+
+
 
 .author-of-the-day-block-name {
   font-style: normal;
@@ -53,24 +93,5 @@
   color: rgba(0, 0, 0, 0.6);
   line-height: 32px;
 }
-.author-of-the-day__header {
 
-}
 
-.author-of-the-day__text-info {
-
-}
-
-.author-image-container {
-  margin: 10px;
-  width: 20%;
-}
-
-.author-of-the-day-image {
-  width: 100%;
-  height: 100%;
-  padding-left: 20px;
-  display: flex;
-  margin: 0 auto;
-  border-radius: 50%;
-}
