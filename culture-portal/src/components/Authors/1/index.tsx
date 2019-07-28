@@ -2,6 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import BigPicture, { BigPictureGallery } from "react-bigpicture";
 
+BigPictureGallery.propTypes.noLoader = PropTypes.bool;
+BigPicture.propTypes.noLoader = PropTypes.bool;
+
 const Galery = ({ data }: { data: any }) => {
   const images = data.gallery.map((el: any) => (
     <img
