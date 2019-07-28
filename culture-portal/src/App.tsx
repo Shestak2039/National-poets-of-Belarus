@@ -1,5 +1,6 @@
-import React from 'react';
+import React, {Component} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { getAuthors } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
@@ -10,22 +11,59 @@ import AboutUs from './components/AboutUs/AboutUs';
 
 import './App.css';
 
-const App = () => (
-  <BrowserRouter>
-      <Route component={Header} />
-      <Route component={ContentWrapper}>
-        <Route exact path="/" component={MainPage} />
-        <Route>
-          <Route exact path="/authors" component={AuthorsWrapper} />
-          <Route path="/authors/1" component={Author} />
-          <Route path="/authors/2" component={Author} />
-          <Route path="/authors/3" component={Author} />
-          <Route path="/authors/4" component={Author} />
-          <Route path="/authors/5" component={Author} />
+class App extends Component {
+  state = {
+    authors: []
+  };
+
+  componentDidMount(): void {
+    const authors: Promise<any> = getAuthors();
+    authors.then(({ items }) => {
+      this.setState({authors: items})
+    });
+  }
+
+  renderCollection () {
+    const { authors } = this.state;
+    return (
+      authors.map((author: any ) => {
+        const {fields} = author;
+
+        return <Route key={fields.slug}
+                 path={`/authors/${fields.slug}`}
+                 component={() => (
+                   <Author data={fields}/>
+                 )
+                 } />
+
+      })
+    );
+
+  }
+
+  render() {
+    const { authors } = this.state;
+
+    if(!authors) {
+      return null;
+    }
+
+    return (
+      <BrowserRouter>
+        <Route component={Header} />
+        <Route component={ContentWrapper}>
+          <Route exact path="/" component={MainPage} />
+          <Route>
+            <Route exact path="/authors" component={() => (
+              <AuthorsWrapper authors={ authors } />
+            )}  />
+            {this.renderCollection()}
+          </Route>
+          <Route path="/about-us" component={AboutUs} />
         </Route>
-        <Route path="/about-us" component={AboutUs} />
-      </Route>
-  </BrowserRouter>
-);
+      </BrowserRouter>
+    )
+  }
+}
 
 export default App;
