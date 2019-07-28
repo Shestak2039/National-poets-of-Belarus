@@ -20,7 +20,7 @@ export function getAuthors(): Promise<any> {
   return getClient().getEntries({
     content_type: 'authorPost',
     include: 1,
-    locale: 'ru'
+    locale: 'en-US'
   });
 }
 
