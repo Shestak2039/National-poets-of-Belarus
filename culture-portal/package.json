@@ -23,6 +23,7 @@
     "react-scripts": "3.0.1",
     "tslint": "^5.18.0",
     "tslint-react": "^4.0.0",
+    "typeface-roboto": "0.0.75",
     "typescript": "^3.5.3"
   },
   "scripts": {

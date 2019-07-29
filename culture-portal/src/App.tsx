@@ -4,7 +4,7 @@ import { getAuthors } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
-import MainPage from './components/mainPage/MainPage';
+import MainPage from './components/mainPage';
 import AuthorsWrapper from './components/Authors/authorsWrapper/index';
 import Author from './components/Authors/1/index';
 import AboutUs from './components/AboutUs/AboutUs';
