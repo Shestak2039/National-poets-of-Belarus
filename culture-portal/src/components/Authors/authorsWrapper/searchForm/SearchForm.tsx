@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import TextField from '@material-ui/core/TextField';
-
+import PropTypes from 'prop-types';
 
 import './search-form.css';
 
-const SearchForm = () => {
-
-  const handleChangle = (e: any) => {
-    console.log(e.target.value);
+const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
+  const handleChange = (e: any) => {
+    changeHandler(e);
   }
   return (
     <TextField
@@ -15,11 +14,15 @@ const SearchForm = () => {
       type="search"
       margin="normal"
       style={{ margin: 16 }}
-      placeholder='a'
+      placeholder='search smth'
       fullWidth
-      onChange={handleChangle}
+      onChange={handleChange}
   />
   );
 }
+
+SearchForm.propTypes = {
+  changeHandler: PropTypes.func.isRequired,
+};
 
 export default SearchForm;
