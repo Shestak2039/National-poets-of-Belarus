@@ -1,26 +1,26 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import PropTypes from 'prop-types';
 
+import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import './author-list.css';
 
-const AuthorList = () => (
-  <ul className="authors-list">
-    <li className="authors-list__item">
-      <Link to="/authors/1">1</Link>
-    </li>
-    <li className="authors-list__item">
-      <Link to="/authors/2">2</Link>
-    </li>
-    <li className="authors-list__item">
-      <Link to="/authors/3">3</Link>
-    </li>
-    <li className="authors-list__item">
-      <Link to="/authors/4">4</Link>
-    </li>
-    <li className="authors-list__item">
-      <Link to="/authors/5">5</Link>
-    </li>
-  </ul>
-);
+const AuthorList = ({ authors = [] } : {authors: any }) => {
+  const { t } = useTranslation();
+
+  return (
+    authors.map((author: any) => (
+          <li key={author.fields.slug} className="authors-list__item">
+            <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link>
+          </li>
+      )
+    )
+  );
+};
+
+AuthorList.propTypes = {
+  authors: PropTypes.instanceOf(Array)
+};
 
 export default AuthorList;
+

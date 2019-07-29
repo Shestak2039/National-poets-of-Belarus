@@ -13,7 +13,9 @@
       {
         "extensions": [
           ".js",
-          ".jsx"
+          ".jsx",
+          ".tsx",
+          ".ts"
         ]
       }
     ],
@@ -33,6 +35,13 @@
     "FileReader": true,
     "Blob": true,
     "navigator": true
+  },
+  "settings": {
+    "import/resolver": {
+      "node": {
+        "extensions": [".js", ".jsx", ".ts", ".tsx"]
+      }
+    }
   },
   "parser": "babel-eslint"
 }
