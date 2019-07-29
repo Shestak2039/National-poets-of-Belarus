@@ -10,6 +10,7 @@ import Author from './components/Authors/1/index';
 import AboutUs from './components/AboutUs/AboutUs';
 
 import './App.css';
+import Footer from "./components/footer";
 
 class App extends Component {
   state = {
@@ -62,6 +63,7 @@ class App extends Component {
             </Route>
             <Route path="/about-us" component={AboutUs} />
           </Route>
+          <Route component={Footer}/>
         </Suspense>
       </BrowserRouter>
     )
