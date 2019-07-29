@@ -9,16 +9,14 @@ div.author-info-container   {
 }
 
 h2.author-info-container__name {
-  margin: 1vw 0;
-  font-size: 3rem;
-}
-
-p.author-info-container__text-info{
-  padding: 30px 0;
-  font-size: 1.2rem;
+  margin: 0;
+  height: 67px;
+  line-height: 67px;
+  color: rgba(0, 0, 0, 0.87);
 }
 
 p.author-info-container__text-info {
+  padding: 0 0 30px;
   text-indent: 1.5rem;
   font-weight: normal;
   font-size: 18px;
@@ -29,7 +27,7 @@ div.author-info-container {
   display: flex;
   border: 1px solid #E5E5E5;
   border-radius: 4px;
-  box-shadow: -5px 5px 10px #cfcfd1;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 2vw auto;
   padding-top: 20px;
   box-sizing: border-box;
@@ -50,18 +48,10 @@ h3.author-info-container__header {
   height: 28px;
 }
 
-h2.author-info-container__name {
-  height: 67px;
-  line-height: 40px;
-  color: rgba(0, 0, 0, 0.87);
-}
-
 .author-info-container__description {
   width: 60%;
   padding-left: 20px;
 }
-
-
 
 button.author-info-container__description__button {
   background: #3F51B5;
