@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Component } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -6,23 +6,31 @@ import SearchForm from './searchForm/SearchForm';
 import AuthorsList from './AuthorsList/AuthorList';
 
 type AuthorsProps = {authors: any };
-type AuthorsState = {
-  searchData: '',
+
+interface AuthorsState {
+  authorsList?: Array<object>,
 }
 
-class AuthorsWrapper extends React.Component<AuthorsProps, AuthorsState> {
+class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
 
   static propTypes: { authors: PropTypes.Validator<unknown[]>; };
 
-  handleSearch(e: any) {
-    console.log(e.target.value);
+  handleSearch = (e: any) => {
+    const searchResult = [...this.props.authors].filter(item => {
+      const authorName = item.fields.nameAuthor.toLowerCase();
+      const searchdata = e.target.value.toLowerCase();
+      return authorName.includes(searchdata);
+    });
+    this.setState({
+      authorsList: searchResult,
+    });
   }
   render() {
-    const {authors} = this.props;
+    const authors = this.state === null ? this.props.authors : this.state.authorsList;
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}/>
-        <AuthorsList authors={authors} />
+        {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
       </>
     )
   }

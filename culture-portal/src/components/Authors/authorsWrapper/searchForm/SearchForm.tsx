@@ -1,11 +1,11 @@
-import React, { Component } from 'react';
+import React from 'react';
 import TextField from '@material-ui/core/TextField';
 import PropTypes from 'prop-types';
 
 import './search-form.css';
 
 const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
-  const handleChange = (e: any) => {
+  const handleChange = (e: object) => {
     changeHandler(e);
   }
   return (
@@ -14,7 +14,7 @@ const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
       type="search"
       margin="normal"
       style={{ margin: 16 }}
-      placeholder='search smth'
+      placeholder='Try to search something.'
       fullWidth
       onChange={handleChange}
   />
