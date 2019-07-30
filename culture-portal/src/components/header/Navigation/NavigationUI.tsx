@@ -48,8 +48,9 @@ const useStyles = makeStyles((theme: Theme) =>
       backgroundColor: 'white',
       color: 'black',
       boxShadow: 'none',
-      '@media screen and (max-width: 450px)': {
-        flexDirection: 'column'
+      '@media screen and (max-width: 560px)': {
+        flexDirection: 'column',
+        margin: '0 auto'
       }
     },
     button: {
