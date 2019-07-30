@@ -1,0 +1,17 @@
+.main-page__team-description {
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* @media screen and (max-width: 1400px) and (min-width: 1000px) {
+  .main-page__team-description {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .main-page__team-description {
+    width: 400px;
+  }
+} */

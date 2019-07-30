@@ -2,6 +2,8 @@ import React from 'react';
 
 import PersonFromTeam from './personFromTeam/PersonFromTeam';
 
+import './about-us.css';
+
 const AboutUs = () => (
   <ul className="main-page__team-description">
       <PersonFromTeam
