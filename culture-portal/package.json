@@ -4,24 +4,36 @@
   "private": true,
   "dependencies": {
     "@material-ui/core": "^4.2.1",
+    "@material-ui/styles": "^4.2.1",
     "@types/jest": "^24.0.15",
     "@types/node": "^12.6.8",
     "@types/react": "^16.8.23",
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
+    "contentful": "^7.8.2",
+    "google-maps-react": "^2.0.2",
+    "i18next": "^17.0.6",
+    "i18next-browser-languagedetector": "^3.0.1",
+    "i18next-locize-backend": "^2.0.2",
+    "i18next-xhr-backend": "^3.0.0",
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
+    "react-bigpicture": "^1.0.24",
     "react-dom": "^16.8.6",
+    "react-i18next": "^10.11.4",
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.0.1",
     "tslint": "^5.18.0",
+    "tslint-react": "^4.0.0",
+    "typeface-roboto": "0.0.75",
     "typescript": "^3.5.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "lint": "tslint --fix 'src/**/*.ts?(x)'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -39,6 +51,7 @@
     ]
   },
   "devDependencies": {
+    "@types/i18next-xhr-backend": "^1.4.2",
     "eslint": "^5.16.0",
     "eslint-config-airbnb": "^17.1.1",
     "eslint-config-prettier": "^6.0.0",
