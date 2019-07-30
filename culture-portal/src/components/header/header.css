@@ -8,15 +8,13 @@
 }
 
 .main-title {
-  background-color: rgb(39, 15, 126);
+  background-color: #3f51b5;
   color: white;
   font-size: 16px;
   padding: 6px 40px;
   margin-left: 10px;
 }
 .title{
-  background-color: rgb(39, 15, 126);
-  color: white;
   font-size: 16px;
   padding: 6px 40px;
   margin-left: 10px;
@@ -31,9 +29,10 @@ li{
   list-style-type: none;
 }
 .MuiTab-wrapper{
-  color: rgb(255, 255, 255);
+  color: gray;
 }
-
-.MuiTabs-scroller {
-  position: inherit !important;
+@media screen and (max-width: 450px){
+  .header{
+    display: inline-flex;
+  }
 }
