@@ -10,12 +10,14 @@ const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
   }
   return (
     <TextField
-      id="standard-search"
+      id="outlined-search"
       type="search"
       margin="normal"
-      placeholder='Try to search something.'
-      fullWidth
+      placeholder='Find author...'
       onChange={handleChange}
+      autoComplete="off"
+      variant="outlined"
+      style={{margin: 4, width: "calc(100% - 8px)"}}
   />
   );
 }
