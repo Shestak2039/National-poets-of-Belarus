@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import { Switch, Route, NavLink, BrowserRouter } from "react-router-dom";
+import {NavLink } from "react-router-dom";
 
 interface TabPanelProps {
 
