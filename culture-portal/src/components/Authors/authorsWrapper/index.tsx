@@ -10,10 +10,18 @@ type AuthorsProps = {authors: any };
 
 interface AuthorsState {
   authorsList?: Array<object>,
+  filterIsOpen: boolean
 }
 
 class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
+  constructor(props: any) {
+    super(props);
 
+    this.state = {
+      filterIsOpen: false,
+      authorsList: props.authors,
+    }
+  }
   static propTypes: { authors: PropTypes.Validator<unknown[]>; };
 
   handleSearch = (e: any) => {
@@ -27,11 +35,15 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     });
   }
 
+  handleFocus = (flag: boolean) => {
+    this.setState({filterIsOpen: flag ? true : false}); // if e.target !== filter => false
+  }
+
   render() {
     const authors = this.state === null ? this.props.authors : this.state.authorsList;
     return (
       <>
-        <SearchForm changeHandler={this.handleSearch} />
+        <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
         {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
       </>
     )

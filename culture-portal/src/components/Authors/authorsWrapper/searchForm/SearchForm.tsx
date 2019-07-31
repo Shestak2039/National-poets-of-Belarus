@@ -1,13 +1,18 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import PropTypes from 'prop-types';
+import PropTypes, { func } from 'prop-types';
 
 import './search-form.css';
 
-const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
+const SearchForm = ({changeHandler, focusHandler} : {changeHandler: any, focusHandler: any}) => {
   const handleChange = (e: object) => {
     changeHandler(e);
   }
+
+  const handleFocus = (flag: boolean) => {
+    focusHandler(flag);
+  }
+
   return (
     <TextField
       id="outlined-search"
@@ -15,6 +20,8 @@ const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
       margin="normal"
       placeholder='Find author...'
       onChange={handleChange}
+      onFocus={handleFocus.bind(null, true)}
+      onBlur={handleFocus.bind(null, false)}
       autoComplete="off"
       variant="outlined"
       style={{margin: 4, width: "calc(100% - 8px)"}}
