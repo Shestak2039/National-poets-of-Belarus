@@ -13,7 +13,6 @@ const SearchForm = ({changeHandler = null} : {changeHandler: any}) => {
       id="standard-search"
       type="search"
       margin="normal"
-      style={{ margin: 16 }}
       placeholder='Try to search something.'
       fullWidth
       onChange={handleChange}

@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 
 import SearchForm from './searchForm/SearchForm';
 import AuthorsList from './AuthorsList/AuthorList';
+import i18n from '../../../i18n';
 
 type AuthorsProps = {authors: any };
 
@@ -17,19 +18,20 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
 
   handleSearch = (e: any) => {
     const searchResult = [...this.props.authors].filter(item => {
-      const authorName = item.fields.nameAuthor.toLowerCase();
-      const searchdata = e.target.value.toLowerCase();
-      return authorName.includes(searchdata);
+      const authorName = i18n.t(item.fields.nameAuthor).toLowerCase();
+      const searchData = e.target.value.toLowerCase();
+      return authorName.includes(searchData);
     });
     this.setState({
       authorsList: searchResult,
     });
   }
+
   render() {
     const authors = this.state === null ? this.props.authors : this.state.authorsList;
     return (
       <>
-        <SearchForm changeHandler={this.handleSearch}/>
+        <SearchForm changeHandler={this.handleSearch} />
         {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
       </>
     )
