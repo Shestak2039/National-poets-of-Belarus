@@ -4,7 +4,7 @@ import AppBar from '@material-ui/core/AppBar';
 import Tab from '@material-ui/core/Tab';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import {NavLink } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 
 interface TabPanelProps {
 
@@ -54,6 +54,10 @@ const useStyles = makeStyles((theme: Theme) =>
       }
     },
     button: {
+      '&:hover': {
+        backgroundColor: '#9bc0c7',
+        color: '#5972FF'
+      },
       backgroundColor: 'none',
     },
   }),
@@ -61,11 +65,8 @@ const useStyles = makeStyles((theme: Theme) =>
 
 export default function SimpleTabs() {
   const classes = useStyles();
-  const [value, setValue] = React.useState(0);
+  const [setValue] = React.useState(0);
 
-  function handleChange(event: React.ChangeEvent<{}>, newValue: number) {
-    setValue(newValue);
-  }
 
   return (
     <nav className="nav">
@@ -73,8 +74,8 @@ export default function SimpleTabs() {
         <div className={classes.root}>
           <AppBar className={classes.headerMenu} position="static">
             <li className="navigation__link"><NavLink to="/" activeClassName='active'><Tab className={classes.button} label="Main" {...a11yProps(0)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/authors/" activeClassName='active'><Tab label="Authors" {...a11yProps(1)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/about-us/" activeClassName='active'><Tab label="About us" {...a11yProps(2)} /></NavLink></li>
+            <li className="navigation__link"><NavLink to="/authors/" activeClassName='active'><Tab className={classes.button} label="Authors" {...a11yProps(1)} /></NavLink></li>
+            <li className="navigation__link"><NavLink to="/about-us/" activeClassName='active'><Tab className={classes.button} label="About us" {...a11yProps(2)} /></NavLink></li>
           </AppBar>
         </div >
       </ul>
