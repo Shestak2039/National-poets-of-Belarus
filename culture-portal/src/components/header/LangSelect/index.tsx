@@ -14,8 +14,9 @@ const useStyles = makeStyles(() => ({
     alignItems: 'center',
     alignContent: 'center',
     '@media screen and (max-width: 560px)': {
-      textAlign: 'right',
-      alignSelf: 'right'
+      position: 'absolute',
+      right: '0',
+      top: '100px'
     }
   }
 }));
