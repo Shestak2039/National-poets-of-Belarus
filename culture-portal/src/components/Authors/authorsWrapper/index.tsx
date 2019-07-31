@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SearchFilter from './searchForm/searchFilter/SearchFilter';
+
 
 import PropTypes from 'prop-types';
 
@@ -36,14 +38,18 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
   }
 
   handleFocus = (flag: boolean) => {
-    this.setState({filterIsOpen: flag ? true : false}); // if e.target !== filter => false
+    this.setState({
+      filterIsOpen: true,
+    });
   }
 
   render() {
     const authors = this.state === null ? this.props.authors : this.state.authorsList;
+    console.log(authors);
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
+        {this.state.filterIsOpen ? <SearchFilter /> : null}
         {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
       </>
     )

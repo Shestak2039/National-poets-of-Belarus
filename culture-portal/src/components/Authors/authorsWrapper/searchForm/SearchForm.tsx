@@ -1,7 +1,5 @@
 import React from 'react';
 import TextField from '@material-ui/core/TextField';
-import PropTypes, { func } from 'prop-types';
-
 import './search-form.css';
 
 const SearchForm = ({changeHandler, focusHandler} : {changeHandler: any, focusHandler: any}) => {
@@ -9,8 +7,8 @@ const SearchForm = ({changeHandler, focusHandler} : {changeHandler: any, focusHa
     changeHandler(e);
   }
 
-  const handleFocus = (flag: boolean) => {
-    focusHandler(flag);
+  const handleFocus = () => {
+    focusHandler();
   }
 
   return (
@@ -20,17 +18,12 @@ const SearchForm = ({changeHandler, focusHandler} : {changeHandler: any, focusHa
       margin="normal"
       placeholder='Find author...'
       onChange={handleChange}
-      onFocus={handleFocus.bind(null, true)}
-      onBlur={handleFocus.bind(null, false)}
+      onFocus={handleFocus}
       autoComplete="off"
       variant="outlined"
       style={{margin: 4, width: "calc(100% - 8px)"}}
-  />
+    />
   );
 }
-
-SearchForm.propTypes = {
-  changeHandler: PropTypes.func.isRequired,
-};
 
 export default SearchForm;
