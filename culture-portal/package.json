@@ -11,6 +11,7 @@
     "@types/react-dom": "^16.8.5",
     "@types/react-router-dom": "^4.3.4",
     "contentful": "^7.8.2",
+    "fg-loadcss": "^2.1.0",
     "google-maps-react": "^2.0.2",
     "i18next": "^17.0.6",
     "i18next-browser-languagedetector": "^3.0.1",
