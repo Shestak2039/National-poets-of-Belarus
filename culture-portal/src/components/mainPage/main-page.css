@@ -1,18 +1,48 @@
-.main-page__portal-description {
-    padding: 30px;
-    text-align: center;
-    border: 1px solid black;
+div.main-page-container {
+  display: flex;
+  width: 90vw;
+  margin: 0 auto;
+  max-width: 1200px;
+  font-family: Roboto;
+  font-style: normal;
+  font-weight: 500;
 }
 
-.main-page__author-of-the-day {
-    padding: 30px;
-    text-align: center;
-    border: 1px solid black;
-    margin: 10px 0px;
+div.main-page-container {
+  flex-direction: column;
 }
 
-.main-page__team-description {
-    display: flex;
-    list-style-type: none;
-    flex-wrap: wrap;
+h2.main-page-description__header {
+  margin: 1vw 0;
+  font-size: 3rem;
 }
+
+h2.main-page-description__header {
+  text-align: center;
+  line-height: 72px;
+  color: rgba(0, 0, 0, 0.87);
+}
+
+div.main-page-description {
+  padding: 30px 0;
+  font-size: 1.2rem;
+}
+
+p.main-page-description__text {
+  text-indent: 1.5rem;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 27px;
+}
+
+p.main-page-description__text {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+
+
+
+
+
+
+
