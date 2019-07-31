@@ -1,10 +1,10 @@
-import React, {Component} from 'react';
+import React, {Component, Suspense} from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
 import { getAuthors } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
-import MainPage from './components/mainPage/MainPage';
+import MainPage from './components/mainPage';
 import AuthorsWrapper from './components/Authors/authorsWrapper/index';
 import Author from './components/Authors/1/index';
 import AboutUs from './components/AboutUs/AboutUs';
@@ -50,17 +50,19 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <Route component={Header} />
-        <Route component={ContentWrapper}>
-          <Route exact path="/" component={MainPage} />
-          <Route>
-            <Route exact path="/authors" component={() => (
-              <AuthorsWrapper authors={ authors } />
-            )}  />
-            {this.renderCollection()}
+        <Suspense fallback="Loading...">
+          <Route component={Header} />
+          <Route component={ContentWrapper}>
+            <Route exact={true} path="/" component={MainPage} />
+            <Route>
+              <Route exact={true} path="/authors" component={() => (
+                <AuthorsWrapper authors={authors} />
+              )}  />
+              {this.renderCollection()}
+            </Route>
+            <Route path="/about-us" component={AboutUs} />
           </Route>
-          <Route path="/about-us" component={AboutUs} />
-        </Route>
+        </Suspense>
       </BrowserRouter>
     )
   }
