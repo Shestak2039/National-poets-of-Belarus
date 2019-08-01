@@ -19,7 +19,7 @@ function getClient(): ContentfulClientApi {
 export function getAuthors(): Promise<any> {
   return getClient().getEntries({
     content_type: 'authorPost',
-    include: 1,
+    include: 2,
     locale: 'en-US'
   });
 }

@@ -9,12 +9,14 @@ const AuthorList = ({ authors = [] } : {authors: any }) => {
   const { t } = useTranslation();
 
   return (
-    authors.map((author: any) => (
-          <li key={author.fields.slug} className="authors-list__item">
-            <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link>
-          </li>
-      )
-    )
+    <ul>
+    {authors.map((author: any) => (
+      <li key={author.fields.slug} className="authors-list__item">
+        <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link>
+      </li>
+      ))
+    }
+    </ul>
   );
 };
 
