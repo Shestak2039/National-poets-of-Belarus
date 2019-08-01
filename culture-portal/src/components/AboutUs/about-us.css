@@ -1,0 +1,20 @@
+.about-us__team-description {
+  display: flex;
+  list-style-type: none;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* @media screen and (max-width: 1400px) and (min-width: 1000px) {
+  .about-us__team-description {
+    width: 800px;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .about-us__team-description {
+    width: 400px;
+  }
+} */

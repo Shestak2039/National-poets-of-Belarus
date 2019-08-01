@@ -1,2 +1,2 @@
 /// <reference types="react-scripts" />
-declare module "react-bigpicture";
+declare module 'fg-loadcss';

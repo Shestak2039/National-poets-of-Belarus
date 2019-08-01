@@ -4,12 +4,13 @@ import { getAuthors } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
-import MainPage from './components/mainPage/MainPage';
+import MainPage from './components/mainPage';
 import AuthorsWrapper from './components/Authors/authorsWrapper/index';
 import Author from './components/Authors/1/index';
 import AboutUs from './components/AboutUs/AboutUs';
 
 import './App.css';
+import Footer from "./components/footer";
 
 class App extends Component {
   state = {
@@ -61,6 +62,7 @@ class App extends Component {
             </Route>
             <Route path="/about-us" component={AboutUs} />
           </Route>
+          <Route component={Footer}/>
         </Suspense>
       </BrowserRouter>
     )
