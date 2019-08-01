@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 
 import Foto from '../../OverlayFoto';
 import Video from '../../OverlayVideo';
+import YandexMap from '../YandexMap/YandexMap';
 
 const Author = ({ data }: { data: any }) => {
   console.log(data);
@@ -11,12 +12,13 @@ const Author = ({ data }: { data: any }) => {
       <div> Some info about author {data.nameAuthor}</div>
       <Foto data={data} />
       <Video data={data} />
+      <YandexMap coordinates={data.map.coordinates} />
     </>
   )
 };
 
 Author.propTypes = {
-  data: PropTypes.instanceOf(Object).isRequired
+  data: PropTypes.instanceOf(Object).isRequired,
 };
 
 export default Author;
