@@ -16,7 +16,7 @@ const Foto = ({ data }: { data: any }) => {
   ));
   return (
     <div className='autorsPhoto'>
-      <BigPictureGallery loop>{images}</BigPictureGallery>
+      <BigPictureGallery loop={true}>{images}</BigPictureGallery>
     </div>
   )
 };

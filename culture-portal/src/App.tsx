@@ -1,6 +1,6 @@
-import React, {Component, Suspense} from 'react';
+import React, { Component, Suspense } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { getAuthors } from "./content-api/content-service";
+import { getAuthors, getCreaters } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
@@ -14,28 +14,33 @@ import Footer from "./components/footer";
 
 class App extends Component {
   state = {
-    authors: []
+    authors: [],
+    creaters: []
   };
 
   componentDidMount(): void {
     const authors: Promise<any> = getAuthors();
     authors.then(({ items }) => {
-      this.setState({authors: items})
+      this.setState({ authors: items })
+    });
+    const creaters: Promise<any> = getCreaters();
+    creaters.then(({ items }) => {
+      this.setState({ creaters: items })
     });
   }
 
-  renderCollection () {
+  renderCollection() {
     const { authors } = this.state;
     return (
-      authors.map((author: any ) => {
-        const {fields} = author;
+      authors.map((author: any) => {
+        const { fields } = author;
 
         return <Route key={fields.slug}
-                 path={`/authors/${fields.slug}`}
-                 component={() => (
-                   <Author data={fields}/>
-                 )
-                 } />
+          path={`/authors/${fields.slug}`}
+          component={() => (
+            <Author data={fields} />
+          )
+          } />
 
       })
     );
@@ -43,9 +48,9 @@ class App extends Component {
   }
 
   render() {
-    const { authors } = this.state;
+    const { authors, creaters } = this.state;
 
-    if(!authors) {
+    if (!authors) {
       return null;
     }
 
@@ -58,12 +63,12 @@ class App extends Component {
             <Route>
               <Route exact={true} path="/authors" component={() => (
                 <AuthorsWrapper authors={authors} />
-              )}  />
+              )} />
               {this.renderCollection()}
             </Route>
-            <Route path="/about-us" component={AboutUs} />
+            <Route path="/about-us" component={() => (<AboutUs data={creaters} />)} />
           </Route>
-          <Route component={Footer}/>
+          <Route component={Footer} />
         </Suspense>
       </BrowserRouter>
     )
