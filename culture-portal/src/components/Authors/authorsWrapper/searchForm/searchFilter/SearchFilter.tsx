@@ -5,9 +5,15 @@ import RadioGroup from '@material-ui/core/RadioGroup';
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
-// import {Close} from '@material-ui/icons';
+import CloseIcon from '@material-ui/icons/Close';
+import { red } from '@material-ui/core/colors';
 
 const styles: any = (theme: any) => ({
+  container: {
+    display: 'flex',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+  },
   root: {
     display: 'flex',
     flexDirection: 'row',
@@ -15,6 +21,13 @@ const styles: any = (theme: any) => ({
   formControl: {
     margin: '5px',
   },
+  icon: {
+    marginRight: '10px',
+    '&:hover': {
+      color: red[800],
+      cursor: 'pointer',
+    },
+  }
 });
 
 type FilterProps = {
@@ -49,7 +62,7 @@ class SearchFilter extends Component<FilterProps, FilterState> {
   render() {
     const { classes } = this.props;
     return (
-      <div className="search-filter">
+      <div className={classes.container}>
         <FormControl component="fieldset" className={classes.formControl}>
           <FormLabel component="legend">Search by:</FormLabel>
           <RadioGroup
@@ -62,9 +75,7 @@ class SearchFilter extends Component<FilterProps, FilterState> {
             <FormControlLabel value="yearsOfLife" control={<Radio color="primary" />} label="Works" />
           </RadioGroup>
         </FormControl>
-        <p onClick={this.handleClose}>Close filter</p>
-        {/* <CloseIcon onClick={this.handleClose} />
-        <Icon>close</Icon> */}
+        <CloseIcon onClick={this.handleClose} className={classes.icon} />
       </div>
     );
   }
