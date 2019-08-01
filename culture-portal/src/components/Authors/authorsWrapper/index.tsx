@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 import SearchForm from './searchForm/SearchForm';
 import AuthorsList from './AuthorsList/AuthorList';
 import i18n from '../../../i18n';
+import SearchFallback from './searchForm/SearchFallback/SearchFallback';
 
 type AuthorsProps = {authors: any };
 
@@ -32,7 +33,7 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     return (
       <>
         <SearchForm changeHandler={this.handleSearch} />
-        {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
+        {authors.length ? <AuthorsList authors={authors} /> : <SearchFallback />}
       </>
     )
   }

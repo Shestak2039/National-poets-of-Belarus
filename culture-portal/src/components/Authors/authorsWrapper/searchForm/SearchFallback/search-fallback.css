@@ -1,0 +1,6 @@
+.search-fallback {
+    font-size: 40px;
+    color: #737374;
+    color: rgba(115, 115, 114, 0.9);
+    text-shadow: 1px 4px 3px #F3F3F3, 0px 0px 0px #000, 1px 4px 6px #F3F3F3;
+}
