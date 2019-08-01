@@ -59,33 +59,33 @@ const PersonFromTeam = (props: DataProps) => {
 
   return (
     <Card className={classes.card}>
-        <CardMedia
-          component="img"
-          alt="Contemplative Reptile"
-          height="350"
-          image={photo}
-          title="Contemplative Reptile"
-        />
-        <CardContent>
-          <Typography gutterBottom variant="h5" component="h2">
-            {nickname}
-          </Typography>
-            <Link className={classes.linkHover} href={`https://github.com/${githubAccount}`} underline='none' target='_blank'>
-              <Box display="flex" bgcolor="background.paper">
-                <Box>
-                  <Icon className={clsx(classes.iconHover, 'fab fa-github')} />
-                </Box>
-                <Box alignSelf="center">
-                  <Typography variant="h6" component="h3">
-                    {githubAccount}
-                  </Typography>
-                </Box>
-              </Box>
-            </Link>
-          <Typography variant="body2" color="textSecondary" component="p">
-            {contribution}
-          </Typography>
-        </CardContent>
+      <CardMedia
+        component="img"
+        alt="Contemplative Reptile"
+        height="350"
+        image={photo}
+        title="Contemplative Reptile"
+      />
+      <CardContent>
+        <Typography gutterBottom={true} variant="h5" component="h2">
+          {nickname}
+        </Typography>
+        <Link className={classes.linkHover} href={`https://github.com/${githubAccount}`} underline='none' target='_blank'>
+          <Box display="flex" bgcolor="background.paper">
+            <Box>
+              <Icon className={clsx(classes.iconHover, 'fab fa-github')} />
+            </Box>
+            <Box alignSelf="center">
+              <Typography variant="h6" component="h3">
+                {githubAccount}
+              </Typography>
+            </Box>
+          </Box>
+        </Link>
+        <Typography variant="body2" color="textSecondary" component="p">
+          {contribution}
+        </Typography>
+      </CardContent>
     </Card>
   );
 };
