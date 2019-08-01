@@ -1,0 +1,8 @@
+.search-fallback {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  font-size: 40px;
+  color: rgba(120, 142, 226, 0.9);
+  text-shadow: 1px 4px 3px #f0f0f0, 0px 0px 1px #000, 1px 4px 6px #d5d4d4;
+}
