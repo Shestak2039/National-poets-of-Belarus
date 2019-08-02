@@ -24,4 +24,13 @@ export function getAuthors(): Promise<any> {
   });
 }
 
-export default { getAuthors };
+export function getCreaters(): Promise<any> {
+  return getClient().getEntries({
+    content_type: 'portalCreators',
+    include: 2,
+    locale: 'en-US'
+  });
+}
+
+
+// export default { getAuthors };
