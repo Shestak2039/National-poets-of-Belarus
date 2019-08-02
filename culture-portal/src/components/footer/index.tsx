@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography/Typography";
 import Container from "@material-ui/core/Container/Container";
 
-const useStyles = makeStyles((theme) => {
+const useStyles = makeStyles(() => {
   return ({
     footer: {
       width: '100%',
