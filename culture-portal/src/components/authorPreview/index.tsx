@@ -104,7 +104,6 @@ export default function AuthorPreview(props: Props): JSX.Element {
     return <div />;
   }
 
-  console.log(props.link);
   return (
     <div className={classes.container}>
       <div className={classes.description}>
@@ -119,7 +118,7 @@ export default function AuthorPreview(props: Props): JSX.Element {
           size="large"
           className={classes.button}
         >
-          <Link to={`/authors/${props.link[0].fields.slug}`}>{props.button}</Link>
+          <Link to={`/authors/${props.slag}`}>{props.button}</Link>
         </Button>
       </div>
       <div className={classes.imageContainer}>

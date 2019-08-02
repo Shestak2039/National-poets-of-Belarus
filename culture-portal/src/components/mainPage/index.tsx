@@ -66,6 +66,7 @@ export default function MainPage(props: Props): JSX.Element {
         picture={props.prev[0].fields.list[0].fields.picture.fields.file.url}
         button={props.prev[0].fields.list[0].fields.button}
         link={props.authors}
+        slag={props.prev[0].fields.list[0].fields.slag}
       />
     </div>
   );

@@ -75,9 +75,7 @@ class App extends Component {
               component={() => (<MainPage main={main} prev={authorsPreviews} authors={authors} />)}
             />
             <Route>
-              <Route exact={true} path="/authors" component={() => (
-                <AuthorsWrapper authors={authors} />
-              )} />
+              <Route exact={true} path="/authors" component={() => (<AuthorsWrapper authors={authors} data={authorsPreviews} />)} />
               {this.renderCollection()}
             </Route>
             <Route path="/about-us" component={() => (<AboutUs data={creaters} />)} />
