@@ -1,6 +1,6 @@
 import React, { Component, Suspense } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
-import { getAuthors, getCreaters } from "./content-api/content-service";
+import { getAuthors, getCreaters, getAuthorsPreviews, getMain } from "./content-api/content-service";
 
 import Header from './components/header/Header';
 import ContentWrapper from './components/contentWrapper/ContentWrapper';
@@ -15,7 +15,9 @@ import Footer from "./components/footer";
 class App extends Component {
   state = {
     authors: [],
-    creaters: []
+    creaters: [],
+    main: [],
+    authorsPreviews: []
   };
 
   componentDidMount(): void {
@@ -26,6 +28,14 @@ class App extends Component {
     const creaters: Promise<any> = getCreaters();
     creaters.then(({ items }) => {
       this.setState({ creaters: items })
+    });
+    const main: Promise<any> = getMain();
+    main.then(({ items }) => {
+      this.setState({ main: items })
+    });
+    const authorsPreviews: Promise<any> = getAuthorsPreviews();
+    authorsPreviews.then(({ items }) => {
+      this.setState({ authorsPreviews: items })
     });
   }
 
@@ -48,7 +58,7 @@ class App extends Component {
   }
 
   render() {
-    const { authors, creaters } = this.state;
+    const { authors, creaters, main, authorsPreviews } = this.state;
 
     if (!authors) {
       return null;
@@ -59,11 +69,13 @@ class App extends Component {
         <Suspense fallback="Loading...">
           <Route component={Header} />
           <Route component={ContentWrapper}>
-            <Route exact={true} path="/" component={MainPage} />
+            <Route
+              exact={true}
+              path="/"
+              component={() => (<MainPage main={main} prev={authorsPreviews} authors={authors} />)}
+            />
             <Route>
-              <Route exact={true} path="/authors" component={() => (
-                <AuthorsWrapper authors={authors} />
-              )} />
+              <Route exact={true} path="/authors" component={() => (<AuthorsWrapper authors={authors} data={authorsPreviews} />)} />
               {this.renderCollection()}
             </Route>
             <Route path="/about-us" component={() => (<AboutUs data={creaters} />)} />
