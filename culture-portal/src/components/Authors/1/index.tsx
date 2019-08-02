@@ -5,7 +5,7 @@ import Foto from '../../OverlayFoto';
 import Video from '../../OverlayVideo';
 import YandexMap from '../YandexMap/YandexMap';
 
-const Author = ({ data }: { data: any }) => {
+const Author = ({ data }: { data: any }): JSX.Element  => {
   console.log(data);
   return (
     <>
