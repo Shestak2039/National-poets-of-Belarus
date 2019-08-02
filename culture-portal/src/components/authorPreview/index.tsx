@@ -1,9 +1,9 @@
 import Typography from "@material-ui/core/Typography/";
 import Button from '@material-ui/core/Button';
 import React from 'react';
-import authorImage from "../../assets/authorOfTheDay.jpg";
 import { makeStyles } from '@material-ui/core/styles';
-import {Props} from "./props";
+import { Props } from "./props";
+import { Link } from 'react-router-dom';
 
 const useStyles = makeStyles(() => {
   return ({
@@ -100,25 +100,32 @@ const useStyles = makeStyles(() => {
 export default function AuthorPreview(props: Props): JSX.Element {
 
   const classes = useStyles();
+  if (props.link.length === 0) {
+    return <div />;
+  }
 
-    return (
-      <div className={classes.container}>
-        <div className={classes.description}>
-          <Typography component="h3" className={classes.containerHeader}>{props.title}</Typography>
-          <Typography component="h2" className={classes.containerName}>Максим Танк</Typography>
-          <Typography component="p" className={classes.containerTextInfo}>
-            Максим Танк (имя при рождении: Евгений Иванович Скурко; 1912—1995) —
-            белорусский и  советский поэт, переводчик, государственный деятель.
-            Классик белорусской литературы. Народный поэт Белорусской ССР (1968).
-          </Typography>
-          <Button variant="contained" component="button" size="large" className={classes.button}>
-            Go to author
-          </Button>
-        </div>
-        <div className={classes.imageContainer}>
-          <img src={authorImage} alt="author-logo" className={classes.authorImage}/>
-        </div>
+  console.log(props.link);
+  return (
+    <div className={classes.container}>
+      <div className={classes.description}>
+        <Typography component="h3" className={classes.containerHeader}>{props.title}</Typography>
+        <Typography component="h2" className={classes.containerName}>{props.name}</Typography>
+        <Typography component="p" className={classes.containerTextInfo}>
+          {props.description}
+        </Typography>
+        <Button
+          variant="contained"
+          component="button"
+          size="large"
+          className={classes.button}
+        >
+          <Link to={`/authors/${props.link[0].fields.slug}`}>{props.button}</Link>
+        </Button>
       </div>
-    );
+      <div className={classes.imageContainer}>
+        <img src={props.picture} alt="author-logo" className={classes.authorImage} />
+      </div>
+    </div>
+  );
 }
 
