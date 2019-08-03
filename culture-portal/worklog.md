@@ -12,7 +12,10 @@
 
 | time spent | feature |
 |-------------|-------------|
-| ??h | implementation of search component|
+| 4h | implementation of search component|
+| 4h | adding of filter component|
+| 1h | adding styles to search and filter components|
+| 2h | fix bags|
 
 *ksandrsis*
 
