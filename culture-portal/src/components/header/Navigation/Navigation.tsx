@@ -46,7 +46,6 @@ const useStyles = makeStyles((theme: Theme) =>
     headerMenu: {
       flexDirection: 'row',
       backgroundColor: 'white',
-      color: 'black',
       boxShadow: 'none',
       '@media screen and (max-width: 560px)': {
         flexDirection: 'column',
@@ -55,17 +54,18 @@ const useStyles = makeStyles((theme: Theme) =>
     },
     button: {
       '&:hover': {
-        backgroundColor: '#9bc0c7',
-        color: '#5972FF'
+        backgroundColor: 'rgba(89, 114, 255, 0.4)',
+        color: '#3f51b5',
       },
-      backgroundColor: 'none',
+      borderRadius: '5px',
     },
     navLink: {
       '&.active': {
-        backgroundColor: '#9bc0c7',
-        color: '#5972FF',
+        backgroundColor: 'rgba(89, 114, 255, 0.4)',
+        color: '#3f51b5 !important',
         padding: '10.5px 0px 16px 0px',
-      }
+        borderRadius: '5px',
+      },
     }
   }),
 );
