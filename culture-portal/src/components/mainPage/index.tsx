@@ -35,7 +35,7 @@ const useStyles = makeStyles(() => {
       color: 'rgba(0, 0, 0, 0.7)'
     }
   });
-});
+}, { index: 2 });
 
 export default function MainPage(props: Props): JSX.Element {
 

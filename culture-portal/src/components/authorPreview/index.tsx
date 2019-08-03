@@ -93,9 +93,12 @@ const useStyles = makeStyles(() => {
       display: 'flex',
       margin: '0 auto',
       borderRadius: '50%',
+    },
+    buttonLink: {
+      color: '#FFFFFF'
     }
   });
-});
+}, { index: 2 });
 
 export default function AuthorPreview(props: Props): JSX.Element {
 
@@ -118,7 +121,7 @@ export default function AuthorPreview(props: Props): JSX.Element {
           size="large"
           className={classes.button}
         >
-          <Link to={`/authors/${props.slag}`}>{props.button}</Link>
+          <Link to={`/authors/${props.slag}`} className={classes.buttonLink}>{props.button}</Link>
         </Button>
       </div>
       <div className={classes.imageContainer}>
