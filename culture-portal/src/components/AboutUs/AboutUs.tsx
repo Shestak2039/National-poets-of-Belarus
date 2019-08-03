@@ -10,8 +10,7 @@ import { async } from 'q';
 const useStyles = makeStyles(() =>
   createStyles({
     title: {
-      fontWeight: 600,
-      marginTop: '40px',
+      marginTop: '40px !important',
     },
   }),
 );
@@ -37,7 +36,7 @@ const AboutUs = ({ data }: { data: any }) => {
   })
   return (
     <>
-      <Typography className={classes.title} align='center' variant="h4" component="h2">
+      <Typography className={classes.title} align='center' variant="h3" component="h2">
         About us
       </Typography>
       <ul className="about-us__team-description">
