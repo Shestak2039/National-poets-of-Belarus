@@ -20,10 +20,10 @@ const LangSelect: FC = () => {
   const classes = useStyles();
   const { i18n } = useTranslation();
 
-  const handleChange = (event: any) => {
+  const handleChange = async (event: any) => {
     const lang = event.target.value;
     if (lang !== i18n.language) {
-      i18n.changeLanguage(lang);
+      await i18n.changeLanguage(lang);
     }
   };
 

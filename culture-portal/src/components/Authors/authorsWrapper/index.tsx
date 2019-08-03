@@ -51,10 +51,15 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     })
   }
 
-  closeFilter = () => {
+  handleClose = (e: any) => {
+    console.log(e.target);
     this.setState({
       filterIsOpen: false,
     })
+  }
+
+  componentWillUpdate() {
+    console.log('update');
   }
 
   render() {
@@ -63,7 +68,7 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
-        {this.state.filterIsOpen ? <SearchFilter handleFilter={this.changeFilter} handleClose={this.closeFilter} /> : null}
+        {this.state.filterIsOpen ? <SearchFilter handleFilter={this.changeFilter} handleClose={this.handleClose} filterValue={this.state.filterValue} /> : null}
         {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
       </>
     )
