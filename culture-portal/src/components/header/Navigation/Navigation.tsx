@@ -60,6 +60,13 @@ const useStyles = makeStyles((theme: Theme) =>
       },
       backgroundColor: 'none',
     },
+    navLink: {
+      '&.active': {
+        backgroundColor: '#9bc0c7',
+        color: '#5972FF',
+        padding: '10.5px 0px 16px 0px',
+      }
+    }
   }),
 );
 
@@ -73,9 +80,9 @@ export default function SimpleTabs() {
       <ul className="navigation">
         <div className={classes.root}>
           <AppBar className={classes.headerMenu} position="static">
-            <li className="navigation__link"><NavLink to="/" activeClassName='active'><Tab className={classes.button} label="Main" {...a11yProps(0)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/authors/" activeClassName='active'><Tab className={classes.button} label="Authors" {...a11yProps(1)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/about-us/" activeClassName='active'><Tab className={classes.button} label="About us" {...a11yProps(2)} /></NavLink></li>
+            <li className="navigation__link"><NavLink exact to="/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label="Main" {...a11yProps(0)} /></NavLink></li>
+            <li className="navigation__link"><NavLink to="/authors/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label="Authors" {...a11yProps(1)} /></NavLink></li>
+            <li className="navigation__link"><NavLink to="/about-us/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label="About us" {...a11yProps(2)} /></NavLink></li>
           </AppBar>
         </div >
       </ul>

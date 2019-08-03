@@ -7,7 +7,8 @@ import YandexMap from '../YandexMap/YandexMap';
 
 import TimeLine from '../../Timeline';
 
-const Author = ({ data }: { data: any }) => {
+const Author = ({ data }: { data: any }): JSX.Element  => {
+
   console.log(data);
   return (
     <>
