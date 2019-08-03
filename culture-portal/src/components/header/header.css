@@ -1,54 +1,54 @@
-*{
+* {
   opacity: 1 !important;
 }
+
 .header {
   display: flex;
   flex-wrap: wrap;
-  box-shadow: 0px 3px 3px black;
+  box-shadow: 0px 1px 3px black;
+  margin-bottom: 10px;
+  position: relative;
 }
 
 .main-title {
   background-color: #3f51b5;
   color: white;
-  height: 60px;
+  font-size: 16px;
+  padding: 6px 40px;
+  margin-left: 10px;
+  text-align: center;
+}
+
+.title {
   font-size: 16px;
   padding: 6px 40px;
   margin-left: 10px;
 }
-.title{
-  font-size: 16px;
-  padding: 6px 40px;
-  margin-left: 10px;
-}
-.MuiAppBar-colorPrimary{
-  background-color: #ffffff;
-}
-a{
+
+a {
   text-decoration: none;
 }
-li{
+
+li {
   list-style-type: none;
 }
-.MuiTab-wrapper{
-  color: gray;
-}
+
 @media screen and (max-width: 560px){
-  .header{
+  .header {
     display: inline-flex;
     width: 100%
   }
-  .main-title{
-    width: 100%;
+  .main-title {
     text-align: center;
-    margin-left: 0;
+    margin: 0 auto 15px auto;
   }
-  .navigation{
+  .navigation {
     display: flex;
     width: 100%;
     margin: 0;
     padding: 0;
   }
-  .nav{
+  .nav {
     width: 100%;
     text-align: center;
   }
