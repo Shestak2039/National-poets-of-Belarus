@@ -12,7 +12,7 @@ type AuthorsProps = {
 const AuthorsWrapper = ({ authors, data }: AuthorsProps) => (
   <>
     <SearchForm />
-    <AuthorsList authors={authors} data={data} />
+    <AuthorsList data={data} />
   </>
 );
 

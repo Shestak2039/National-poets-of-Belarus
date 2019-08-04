@@ -106,9 +106,6 @@ export default function AuthorPreview(props: Props): JSX.Element {
 
   const classes = useStyles();
   const { t } = useTranslation();
-  if (props.link.length === 0) {
-    return <div />;
-  }
 
   return (
     <div className={classes.container}>
