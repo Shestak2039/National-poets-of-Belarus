@@ -8,6 +8,7 @@ import MainPage from './components/mainPage';
 import AuthorsWrapper from './components/Authors/authorsWrapper/index';
 import Author from './components/AuthorPostPage';
 import AboutUs from './components/AboutUs/AboutUs';
+import Loading from './components/Loading/Loading';
 
 import './App.css';
 import Footer from "./components/footer";
@@ -66,7 +67,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <Suspense fallback="Loading...">
+        <Suspense fallback={<Loading />}>
           <Route component={Header} />
           <Route component={ContentWrapper}>
             <Route
