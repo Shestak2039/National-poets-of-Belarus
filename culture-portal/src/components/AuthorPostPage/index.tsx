@@ -4,9 +4,9 @@ import { makeStyles } from '@material-ui/styles';
 import { useTranslation } from 'react-i18next';
 import Foto from '../OverlayFoto';
 import Video from '../OverlayVideo';
-import YandexMap from '../YandexMap/YandexMap';
-
 import TimeLine from '../Timeline';
+import WorkLog from '../WorkLog';
+import YandexMap from '../YandexMap/YandexMap';
 
 const useStyles = makeStyles({
   pageTitle: {
@@ -102,6 +102,10 @@ const Author = ({ data }: { data: any }): JSX.Element  => {
       <section className={classes.structuralElement}>
         <Typography align='center' component='h2' className={classes.pageSubTitle}> {t('Timeline')} </Typography>
         <TimeLine data={data} />
+      </section>
+      <section className={classes.structuralElement}>
+        <Typography align='center' component='h2' className={classes.pageSubTitle}> {t('WorkLog')} </Typography>
+        <WorkLog data={data.works.fields.works} />
       </section>
       <section className={classes.structuralElement}>
         <Typography align='center' component='h2' className={classes.pageSubTitle}> {t('Video')} </Typography>
