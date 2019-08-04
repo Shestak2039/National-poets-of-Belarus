@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useTranslation } from 'react-i18next';
 
 import { Container, Grid, Avatar, Typography } from '@material-ui/core';
@@ -85,6 +85,11 @@ const useStyles = makeStyles({
 
 const Author = ({ data }: { data: any }): JSX.Element  => {
   const classes = useStyles();
+
+  useEffect(() => {
+    document.title = data.nameAuthor;
+  });
+
   const { nameAuthor, yearsOfLife, description, picture  } = data;
   const urlPicture = picture.fields.file.url;
   const { works } =  data.works.fields;

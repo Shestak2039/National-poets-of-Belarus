@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import PropTypes from 'prop-types';
 
@@ -9,12 +9,18 @@ type AuthorsProps = {
   authors: any,
   data: any
 };
-const AuthorsWrapper = ({ data }: AuthorsProps) => (
-  <>
-    <SearchForm />
-    <AuthorsList data={data} />
-  </>
-);
+const AuthorsWrapper = ({ data }: AuthorsProps) => {
+  useEffect(() => {
+    document.title = `Authors list`;
+  });
+
+  return (
+    <>
+      <SearchForm />
+      <AuthorsList data={data} />
+    </>
+  )
+};
 
 AuthorsWrapper.propTypes = {
   authors: PropTypes.instanceOf(Array).isRequired

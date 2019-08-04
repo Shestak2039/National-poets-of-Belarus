@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {useTranslation} from 'react-i18next';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
@@ -17,6 +17,11 @@ const useStyles = makeStyles(() =>
 
 const AboutUs = ({ data }: { data: any }) => {
   const classes = useStyles();
+
+  useEffect(() => {
+    document.title = `About developers`;
+  });
+
   const { t } = useTranslation();
   if (data.length === 0) {
     return null;

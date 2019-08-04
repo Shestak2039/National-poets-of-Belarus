@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Typography from "@material-ui/core/Typography/";
 import AuthorPreview from "../authorPreview";
@@ -39,6 +39,10 @@ const useStyles = makeStyles(() => {
 }, { index: 2 });
 
 export default function MainPage(props: Props): JSX.Element {
+  useEffect(() => {
+    document.title = `National poets of Belarus`;
+  });
+
   const { t } = useTranslation();
   const classes = useStyles();
 
