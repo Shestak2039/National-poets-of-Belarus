@@ -52,7 +52,7 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     })
   }
 
-  handleClose = (e: any) => {
+  handleClose = () => {
     this.setState({
       filterIsOpen: false,
     })
