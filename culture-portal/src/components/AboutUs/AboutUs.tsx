@@ -1,46 +1,49 @@
 import React from 'react';
+import Typography from '@material-ui/core/Typography';
+import { makeStyles, createStyles } from '@material-ui/core/styles';
 
 import PersonFromTeam from './personFromTeam/PersonFromTeam';
 
-const AboutUs = () => (
-  <ul className="main-page__team-description">
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-      <PersonFromTeam
-        photo="Something photo"
-        githubAccount="Something github account"
-        nickname="Something nickname"
-        contribution="Something contribution"
-      />
-    </ul>
+import './about-us.css';
+import { async } from 'q';
+
+const useStyles = makeStyles(() =>
+  createStyles({
+    title: {
+      marginTop: '40px !important',
+    },
+  }),
 );
+
+
+
+const AboutUs = ({ data }: { data: any }) => {
+  const classes = useStyles();
+  if (data.length === 0) {
+    return null;
+  }
+  console.log(data[0].fields.creatersList);
+  const listOfUs = data[0].fields.creatersList.map((el: any) => {
+    return (
+      <PersonFromTeam
+        key={el.sys.id}
+        photo={el.fields.photo.fields.file.url}
+        githubAccount={el.fields.nicname}
+        nickname={el.fields.name}
+        contribution={el.fields.contribution}
+      />
+    )
+  })
+  return (
+    <>
+      <Typography className={classes.title} align='center' variant="h3" component="h2">
+        About us
+      </Typography>
+      <ul className="about-us__team-description">
+        {listOfUs}
+      </ul>
+    </>
+  );
+}
 
 export default AboutUs;

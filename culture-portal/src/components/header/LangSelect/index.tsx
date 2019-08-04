@@ -6,13 +6,18 @@ import { useTranslation } from 'react-i18next';
 const useStyles = makeStyles(() => ({
   formControl: {
     display: 'flex',
-    marginLeft: 20
+    marginLeft: 20,
   },
   root: {
     display: 'flex',
     flexWrap: 'wrap',
     alignItems: 'center',
-    alignContent: 'center'
+    alignContent: 'center',
+    '@media screen and (max-width: 560px)': {
+      position: 'absolute',
+      right: '10px',
+      bottom: '10px'
+    }
   }
 }));
 

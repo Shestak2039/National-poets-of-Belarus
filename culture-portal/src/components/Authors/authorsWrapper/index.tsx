@@ -5,11 +5,14 @@ import PropTypes from 'prop-types';
 import SearchForm from './searchForm/SearchForm';
 import AuthorsList from './AuthorsList/AuthorList';
 
-type AuthorsProps = {authors: any };
-const AuthorsWrapper = ( { authors } : AuthorsProps ) => (
+type AuthorsProps = {
+  authors: any,
+  data: any
+};
+const AuthorsWrapper = ({ authors, data }: AuthorsProps) => (
   <>
     <SearchForm />
-    <AuthorsList authors={authors} />
+    <AuthorsList authors={authors} data={data} />
   </>
 );
 

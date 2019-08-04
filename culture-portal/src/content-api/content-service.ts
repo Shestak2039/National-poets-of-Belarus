@@ -19,9 +19,32 @@ function getClient(): ContentfulClientApi {
 export function getAuthors(): Promise<any> {
   return getClient().getEntries({
     content_type: 'authorPost',
-    include: 1,
+    include: 2,
     locale: 'en-US'
   });
 }
 
-export default { getAuthors };
+export function getCreaters(): Promise<any> {
+  return getClient().getEntries({
+    content_type: 'portalCreators',
+    include: 2,
+    locale: 'en-US'
+  });
+}
+export function getMain(): Promise<any> {
+  return getClient().getEntries({
+    content_type: 'mainPageContent',
+    include: 2,
+    locale: 'en-US'
+  });
+}
+export function getAuthorsPreviews(): Promise<any> {
+  return getClient().getEntries({
+    content_type: 'authorsPreviews',
+    include: 2,
+    locale: 'en-US'
+  });
+}
+
+
+// export default { getAuthors };
