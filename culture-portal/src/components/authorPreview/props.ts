@@ -4,6 +4,7 @@ export interface Props {
   description: string,
   picture: string,
   button: string,
-  slag: string
+  slag: string,
+  link?: any,
 }
 
