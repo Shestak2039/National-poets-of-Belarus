@@ -106,17 +106,15 @@ export default function AuthorPreview(props: Props): JSX.Element {
 
   const classes = useStyles();
   const { t } = useTranslation();
-  if (props.link.length === 0) {
-    return <div />;
-  }
+  const { title, name, description, slag, button, picture } = props;
 
   return (
     <div className={classes.container}>
       <div className={classes.description}>
-        <Typography component="h3" className={classes.containerHeader}>{t(props.title)}</Typography>
-        <Typography component="h2" className={classes.containerName}>{t(props.name)}</Typography>
+        <Typography component="h3" className={classes.containerHeader}>{t(title)}</Typography>
+        <Typography component="h2" className={classes.containerName}>{t(name)}</Typography>
         <Typography component="p" className={classes.containerTextInfo}>
-          {t(props.description)}
+          {t(description)}
         </Typography>
         <Button
           variant="contained"
@@ -124,11 +122,11 @@ export default function AuthorPreview(props: Props): JSX.Element {
           size="large"
           className={classes.button}
         >
-          <Link to={`/authors/${props.slag}`} className={classes.buttonLink}>{t(props.button)}</Link>
+          <Link to={`/authors/${slag}`} className={classes.buttonLink}>{t(button)}</Link>
         </Button>
       </div>
       <div className={classes.imageContainer}>
-        <img src={props.picture} alt="author-logo" className={classes.authorImage} />
+        <img src={picture} alt="author-logo" className={classes.authorImage} />
       </div>
     </div>
   );

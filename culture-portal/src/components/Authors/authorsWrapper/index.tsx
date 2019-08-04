@@ -53,7 +53,6 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
   }
 
   handleClose = (e: any) => {
-    console.log(e.target);
     this.setState({
       filterIsOpen: false,
     })
@@ -71,9 +70,5 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     )
   }
 }
-
-AuthorsWrapper.propTypes = {
-  authors: PropTypes.instanceOf(Array).isRequired
-};
 
 export default AuthorsWrapper;

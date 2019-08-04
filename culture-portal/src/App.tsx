@@ -8,6 +8,7 @@ import MainPage from './components/mainPage';
 import AuthorsWrapper from './components/Authors/authorsWrapper/index';
 import Author from './components/AuthorPostPage';
 import AboutUs from './components/AboutUs/AboutUs';
+import Loading from './components/Loading/Loading';
 
 import './App.css';
 import Footer from "./components/footer";
@@ -65,7 +66,7 @@ class App extends Component {
 
     return (
       <BrowserRouter>
-        <Suspense fallback="Loading...">
+        <Suspense fallback={<Loading />}>
           <Route component={Header} />
           <Route component={ContentWrapper}>
             <Route
@@ -74,7 +75,11 @@ class App extends Component {
               component={() => (<MainPage main={main} prev={authorsPreviews} authors={authors} />)}
             />
             <Route>
-              <Route exact={true} path="/authors" component={() => (<AuthorsWrapper authors={authors} data={authorsPreviews} />)} />
+              <Route
+                exact={true}
+                path="/authors"
+                component={() => (<AuthorsWrapper authors={authors} data={authorsPreviews} />)}
+              />
               {this.renderCollection()}
             </Route>
             <Route path="/about-us" component={() => (<AboutUs data={creaters} />)} />

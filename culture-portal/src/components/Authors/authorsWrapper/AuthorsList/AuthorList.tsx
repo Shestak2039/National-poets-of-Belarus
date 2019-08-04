@@ -6,14 +6,9 @@ import './author-list.css';
 
 const AuthorList = ({ authors = [], data }: { authors: any, data: any }) => {
 
-  // if (data.length === 0) {
-  //   return null;
-  // }
-  // console.log(data[0].fields.list[0].fields.name);
   const list = authors.map((author: any, index: number) => {
     return (
       <li key={author.fields.slug} className="authors-list__item">
-        {/* <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link> */}
         <AuthorPreview
           title=""
           name={author.fields.nameAuthor}
@@ -39,4 +34,3 @@ AuthorList.propTypes = {
 };
 
 export default AuthorList;
-
