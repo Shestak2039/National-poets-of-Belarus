@@ -66,7 +66,6 @@ class SearchFilter extends Component<FilterProps, FilterState> {
     const formLegend = i18n.t('Search by:');
     const nameLabel = i18n.t('Name');
     const birthplaceLabel = i18n.t('Birthplace');
-    const yearsLabel = i18n.t('Years of live');
     return (
       <div className={classes.container}>
         <FormControl component="fieldset" className={classes.formControl}>
@@ -77,8 +76,7 @@ class SearchFilter extends Component<FilterProps, FilterState> {
             onChange={this.handleChange}
           >
             <FormControlLabel value="nameAuthor" control={<Radio color="primary" />} label={nameLabel} />
-            <FormControlLabel value="Birhtplace" control={<Radio color="primary" />} label={birthplaceLabel} />
-            <FormControlLabel value="yearsOfLife" control={<Radio color="primary" />} label={yearsLabel} />
+            <FormControlLabel value="placeOfBirth" control={<Radio color="primary" />} label={birthplaceLabel} />
           </RadioGroup>
         </FormControl>
         <CloseIcon onClick={this.handleClose} className={classes.icon} />
