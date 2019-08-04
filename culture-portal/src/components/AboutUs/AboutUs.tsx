@@ -1,9 +1,8 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-
 import PersonFromTeam from './personFromTeam/PersonFromTeam';
-
 import './about-us.css';
 
 const useStyles = makeStyles(() =>
@@ -18,6 +17,7 @@ const useStyles = makeStyles(() =>
 
 const AboutUs = ({ data }: { data: any }) => {
   const classes = useStyles();
+  const { t } = useTranslation();
   if (data.length === 0) {
     return null;
   }
@@ -31,17 +31,17 @@ const AboutUs = ({ data }: { data: any }) => {
         contribution={el.fields.contribution}
       />
     )
-  })
+  });
   return (
     <>
       <Typography className={classes.title} align='center' variant="h3" component="h2">
-        About us
+        {t('About us')}
       </Typography>
       <ul className="about-us__team-description">
         {listOfUs}
       </ul>
     </>
   );
-}
+};
 
 export default AboutUs;
