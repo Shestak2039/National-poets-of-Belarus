@@ -45,8 +45,8 @@
 
 | time spent | feature |
 |-------------|-------------|
-| | |
-| | |
-| | |
-| | | 
-| | | 
+| 4h | design website |
+| 4h |  add Contentful CMS |
+| 6h | add i18n in project |
+| 1h | WorkLog Component | 
+| 4h | style author page | 
