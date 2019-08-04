@@ -87,10 +87,11 @@ const Author = ({ data }: { data: any }): JSX.Element => {
 
   useEffect(() => {
     window.scrollTo(0, 0);
+    document.title = data.nameAuthor;
   });
 
   const classes = useStyles();
-  const { nameAuthor, yearsOfLife, description, picture } = data;
+  const { nameAuthor, yearsOfLife, description, picture  } = data;
   const urlPicture = picture.fields.file.url;
   const { works } = data.works.fields;
   const { t } = useTranslation();
