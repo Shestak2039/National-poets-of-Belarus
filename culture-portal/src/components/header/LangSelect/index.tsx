@@ -31,7 +31,6 @@ const LangSelect: FC = () => {
       i18n.changeLanguage(lang);
     }
   };
-
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
@@ -39,7 +38,7 @@ const LangSelect: FC = () => {
           <MenuItem value="en">
             en
           </MenuItem>
-          <MenuItem value="ru-RU">
+          <MenuItem value="ru">
             ru
           </MenuItem>
           <MenuItem value="be">
