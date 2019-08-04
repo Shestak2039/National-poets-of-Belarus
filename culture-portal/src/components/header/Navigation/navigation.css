@@ -2,23 +2,3 @@
   display: flex;
   list-style-type: none;
 }
-
-.navigation__link{
-  padding: 10px;
-}
-
-.navigation__link a {
-  text-decoration: none;
-  color: black;
-}
-
-.navigation__link a.active {
-  background-color: rgb(196, 233, 240);
-  color: rgb(39, 39, 184);
-  padding: 5px 20px;
-  border-radius: 5px;
-}
-
-.navigation__link:not(:last-child) {
-  margin-right: 10px;
-}

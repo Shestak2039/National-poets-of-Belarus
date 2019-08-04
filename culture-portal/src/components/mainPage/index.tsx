@@ -1,31 +1,86 @@
-import React from 'react';
-import './main-page.css';
-import Typography from "@material-ui/core/Typography/Typography";
+import React, { useEffect } from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import Typography from "@material-ui/core/Typography/";
 import AuthorPreview from "../authorPreview";
+import { Props } from "./props";
+import {useTranslation} from "react-i18next";
 
+const useStyles = makeStyles(() => {
+  return ({
+    container: {
+      display: 'flex',
+      flexDirection: 'column',
+      width: '90vw',
+      margin: '0 auto',
+      maxWidth: '1200px',
+      fontFamily: 'Roboto',
+      fontStyle: 'normal',
+      fontWeight: 500,
+    },
+    description: {
+      padding: '30px 0',
+      fontSize: '1.2rem',
+    },
+    descriptionHeader: {
+      margin: '1vw 0',
+      fontSize: '3rem',
+      textAlign: 'center',
+      lineHeight: '72px',
+      color: 'rgba(0, 0, 0, 0.87)',
+    },
+    descriptionText: {
+      textIndent: '1.5rem',
+      fontWeight: 'normal',
+      fontSize: '18px',
+      lineHeight: '27px',
+      color: 'rgba(0, 0, 0, 0.7)'
+    }
+  });
+}, { index: 2 });
 
+export default function MainPage(props: Props): JSX.Element {
+  useEffect(() => {
+    document.title = `National poets of Belarus`;
+  });
 
-export default class MainPage extends React.Component {
+  const { t } = useTranslation();
+  const classes = useStyles();
 
-  render() {
-    return (
-      <div className="main-page-container">
-        <div className="main-page-description">
-          <Typography component="h2" className="main-page-description__header">Народные поэты Беларуси</Typography>
-          <Typography component="p" className="main-page-description__text">
-            Этот портал посвящен народным поэтам Беларуси.
-            Мы говорим “спасибо” тем людям, кто оставил огромный след в истории белорусской культуры
-            и чьи произведения с гордостью изучают сейчас в рамках школьной программы.
-          </Typography>
-          <Typography component="p" className="main-page-description__text">Народный поэт Беларуси — почётное звание, которое присуждается поэтам,
-            создавшим выдающиеся произведения литературы и имеющим большие достижения
-            в развитии белорусской литературы. Введено Указом Президиума Верховного Совета БССР
-            от 27 марта 1956 года. С 1994 года присваивается Президентом Республики Беларусь.
-          </Typography>
-        </div>
-        <AuthorPreview />
+  if (props.main.length === 0) {
+    return <div />;
+  }
+
+  if (props.prev.length === 0) {
+    return <div />;
+  }
+
+  const randomAuthor = Math.floor(Math.random() * (props.prev[0].fields.list.length - 1));
+  const { name, description, picture, button, slag } = props.prev[0].fields.list[randomAuthor].fields;
+  const {headline, paragraph1, paragraph2, blockTitle} = props.main[0].fields;
+  const urlPicture = picture.fields.file.url;
+
+  return (
+    <div className={classes.container}>
+      <div className={classes.description}>
+        <Typography component="h2" className={classes.descriptionHeader}>{t(headline)}</Typography>
+        <Typography component="p" className={classes.descriptionText}>
+          {t(paragraph1)}
+        </Typography>
+        <Typography component="p" className={classes.descriptionText}>
+          {t(paragraph2)}
+        </Typography>
       </div>
-    )
-  };
-}
+      <AuthorPreview
+        title={blockTitle}
+        name={name}
+        description={description}
+        picture={urlPicture}
+        button={button}
+        slag={slag}
+        link=''
+      />
+    </div>
+  );
+};
+
 
