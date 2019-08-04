@@ -41,16 +41,20 @@ const useStyles = makeStyles(() => {
 export default function MainPage(props: Props): JSX.Element {
   const { t } = useTranslation();
   const classes = useStyles();
+
   if (props.main.length === 0) {
     return <div />;
   }
+
   if (props.prev.length === 0) {
     return <div />;
   }
+
   const randomAuthor = Math.floor(Math.random() * (props.prev[0].fields.list.length - 1));
   const { name, description, picture, button, slag } = props.prev[0].fields.list[randomAuthor].fields;
   const {headline, paragraph1, paragraph2, blockTitle} = props.main[0].fields;
   const urlPicture = picture.fields.file.url;
+
   return (
     <div className={classes.container}>
       <div className={classes.description}>

@@ -1,34 +1,8 @@
 import React from "react";
 import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import AppBar from '@material-ui/core/AppBar';
-import Tab from '@material-ui/core/Tab';
-import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import { AppBar, Tab } from '@material-ui/core';
 import { NavLink } from "react-router-dom";
 import {useTranslation} from "react-i18next";
-
-interface TabPanelProps {
-
-  children?: React.ReactNode;
-  index: any;
-  value: any;
-}
-function TabPanel(props: TabPanelProps) {
-  const { children, value, index, ...other } = props;
-
-  return (
-    <Typography
-      component="div"
-      role="tabpanel"
-      hidden={value !== index}
-      id={`simple-tabpanel-${index}`}
-      aria-labelledby={`simple-tab-${index}`}
-      {...other}
-    >
-      <Box p={3}>{children}</Box>
-    </Typography>
-  );
-}
 
 
 function a11yProps(index: any) {

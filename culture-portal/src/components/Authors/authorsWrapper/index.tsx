@@ -9,7 +9,7 @@ type AuthorsProps = {
   authors: any,
   data: any
 };
-const AuthorsWrapper = ({ authors, data }: AuthorsProps) => (
+const AuthorsWrapper = ({ data }: AuthorsProps) => (
   <>
     <SearchForm />
     <AuthorsList data={data} />

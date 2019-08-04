@@ -85,19 +85,22 @@ const useStyles = makeStyles({
 
 const Author = ({ data }: { data: any }): JSX.Element  => {
   const classes = useStyles();
+  const { nameAuthor, yearsOfLife, description, picture  } = data;
+  const urlPicture = picture.fields.file.url;
+  const { works } =  data.works.fields;
   const { t } = useTranslation();
   return (
     <>
       <Container maxWidth='lg' className={classes.mainContainer}>
-        <Typography align='center' component='h1' className={classes.pageTitle} > {t(data.nameAuthor)} </Typography>
+        <Typography align='center' component='h1' className={classes.pageTitle} > {t(nameAuthor)} </Typography>
         <Grid container spacing={3}>
           <Grid item lg={6} xs={12}>
-            <Typography component='p'>{t(data.description)}</Typography>
-            <Typography component='p' className={classes.dateLife}><strong>{t('Years of life: ')}</strong> {data.yearsOfLife}</Typography>
+            <Typography component='p'>{t(description)}</Typography>
+            <Typography component='p' className={classes.dateLife}><strong>{t('Years of life: ')}</strong> {yearsOfLife}</Typography>
           </Grid>
           <Grid item lg={6} xs={12}>
             <div className={classes.containerAvatar}>
-              <Avatar alt={t(data.nameAuthor)}  src={data.picture.fields.file.url} className={classes.postAvatar} />
+              <Avatar alt={t(data.nameAuthor)}  src={urlPicture} className={classes.postAvatar} />
             </div>
           </Grid>
         </Grid>
@@ -108,7 +111,7 @@ const Author = ({ data }: { data: any }): JSX.Element  => {
       </section>
       <section className={classes.structuralElement}>
         <Typography align='center' component='h2' className={classes.pageSubTitle}> {t('WorkLog')} </Typography>
-        <WorkLog data={data.works.fields.works} />
+        <WorkLog data={works} />
       </section>
       <section className={classes.structuralElement}>
         <Typography align='center' component='h2' className={classes.pageSubTitle}> {t('Video')} </Typography>

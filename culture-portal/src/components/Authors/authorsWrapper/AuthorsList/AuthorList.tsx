@@ -1,5 +1,4 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 
 import AuthorPreview from '../../../authorPreview';
 import './author-list.css';
@@ -9,12 +8,14 @@ const AuthorList = ({ data }: { data: any }) => {
   if (data.length === 0) {
     return null;
   }
-  const list = data[0].fields.list.map((author: any, index: number) => {
-    const { name, description, picture, button, slag } = data[0].fields.list[index].fields;
+
+  const listAuthors = data[0].fields.list;
+  const list = listAuthors.map((author: any) => {
+    const { name, description, picture, button, slag } = author.fields;
     const urlPicture = picture.fields.file.url;
+
     return (
-      <li key={author.fields.slug} className="authors-list__item">
-        {/* <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link> */}
+      <li key={slag} className="authors-list__item">
         <AuthorPreview
           title=""
           name={name}
