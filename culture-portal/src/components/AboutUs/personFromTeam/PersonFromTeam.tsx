@@ -42,6 +42,10 @@ const useStyles = makeStyles((theme: Theme) =>
         color: 'rgba(0, 0, 0, 0.6)',
       },
     },
+    contribution: {
+      whiteSpace: 'pre-wrap',
+      fontSize: '18px',
+    }
   }),
 );
 
@@ -83,7 +87,7 @@ const PersonFromTeam = (props: DataProps) => {
             </Box>
           </Box>
         </Link>
-        <Typography variant="body2" color="textSecondary" component="p">
+        <Typography className={classes.contribution} variant="h6" color="textSecondary" component="p">
           {t(contribution)}
         </Typography>
       </CardContent>
