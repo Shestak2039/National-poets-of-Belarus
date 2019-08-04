@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { makeStyles} from "@material-ui/styles";
+import { makeStyles } from "@material-ui/styles";
 import { BigPictureGallery } from "react-bigpicture";
 
 BigPictureGallery.propTypes.noLoader = PropTypes.bool;
