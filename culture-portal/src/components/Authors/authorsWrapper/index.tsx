@@ -59,32 +59,13 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     })
   }
 
-  componentWillUpdate() {
-    console.log('update');
-  }
-  componentWillUpdate() {
-    console.log('upd');
-  }
-
   render() {
-<<<<<<< HEAD
     const authors = this.state.authorsList || this.props.authors;
     const { data } = this.props;
-    console.log(authors);
-    console.log(data);
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
         {authors.length ? <AuthorsList authors={authors} data={data}/> : <SearchFallback />}
-=======
-    const authors = this.state === null ? this.props.authors : this.state.authorsList;
-    console.log(authors);
-    return (
-      <>
-        <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
-        {this.state.filterIsOpen ? <SearchFilter handleFilter={this.changeFilter} handleClose={this.handleClose} filterValue={this.state.filterValue} /> : null}
-        {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
->>>>>>> feature/search-filter
       </>
     )
   }
