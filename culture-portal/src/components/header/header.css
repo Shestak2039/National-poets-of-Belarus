@@ -50,9 +50,14 @@ li {
     width: 100%;
     padding-bottom: 20px;
   }
+
   .main-title {
     text-align: center;
     margin: 0 auto 15px auto;
+  }
+
+  .container-wrapper {
+    justify-content: center;
   }
 
   .navigation {
