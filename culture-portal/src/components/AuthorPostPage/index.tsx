@@ -1,7 +1,9 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
+
 import { Container, Grid, Avatar, Typography } from '@material-ui/core';
 import { makeStyles } from '@material-ui/styles';
-import { useTranslation } from 'react-i18next';
+
 import Foto from '../OverlayFoto';
 import Video from '../OverlayVideo';
 import TimeLine from '../Timeline';
@@ -63,6 +65,7 @@ const useStyles = makeStyles({
       '& img': {
         '&:not(:last-child)': {
           marginRight: '30px',
+          marginBottom: '30px'
         }
       },
     },
