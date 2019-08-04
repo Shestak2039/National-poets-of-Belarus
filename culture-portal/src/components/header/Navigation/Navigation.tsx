@@ -1,7 +1,7 @@
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Button } from '@material-ui/core';
-import { NavLink } from 'react-router-dom';
+import { NavLink, NavLinkProps } from 'react-router-dom';
 import {useTranslation} from 'react-i18next';
 
 const useStyles = makeStyles(() => {
@@ -30,6 +30,9 @@ const useStyles = makeStyles(() => {
 }, { index: 2 });
 
 export default function SimpleTabs() {
+  const CollisionLink = React.forwardRef<HTMLAnchorElement, Omit<NavLinkProps, 'innerRef'>>(
+    (props, ref) => <NavLink innerRef={ref as any} {...props} />,
+  );
   const classes = useStyles();
   const { t } = useTranslation();
 
@@ -37,17 +40,17 @@ export default function SimpleTabs() {
     <nav className='nav'>
       <ul className='navigation'>
             <li className='navigation__link'>
-              <Button exact component={NavLink} to='/' activeClassName='active' className={classes.link}>
+              <Button exact component={CollisionLink} to='/' activeClassName='active' className={classes.link}>
                 {t('Main')}
               </Button>
             </li>
             <li className='navigation__link'>
-              <Button exact component={NavLink} to='/authors/' activeClassName='active' className={classes.link}>
+              <Button exact component={CollisionLink} to='/authors/' activeClassName='active' className={classes.link}>
                 {t('Authors')}
               </Button>
             </li>
             <li className='navigation__link'>
-              <Button exact component={NavLink} to='/about-us/' activeClassName='active' className={classes.link}>
+              <Button exact component={CollisionLink} to='/about-us/' activeClassName='active' className={classes.link}>
                 {t('About us')}
               </Button>
             </li>
