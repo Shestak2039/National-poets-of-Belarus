@@ -1,12 +1,11 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { useTranslation } from 'react-i18next';
 import AuthorPreview from '../../../authorPreview';
 import './author-list.css';
 
 const AuthorList = ({ authors = [], data }: { authors: any, data: any }) => {
-  const { t } = useTranslation();
+
   // if (data.length === 0) {
   //   return null;
   // }

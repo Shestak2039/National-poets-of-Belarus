@@ -1,9 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import { DataProps } from '../../../types/index';
-
 import clsx from 'clsx';
 import { loadCSS } from 'fg-loadcss';
+import { useTranslation } from "react-i18next";
 import { makeStyles, createStyles, Theme } from '@material-ui/core/styles';
 import { blue } from '@material-ui/core/colors';
 import Icon from '@material-ui/core/Icon';
@@ -13,6 +12,8 @@ import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Link from '@material-ui/core/Link';
+
+import { DataProps } from '../../../types';
 
 import './person-from-team.css';
 
@@ -49,7 +50,7 @@ const PersonFromTeam = (props: DataProps) => {
     photo, githubAccount, nickname, contribution,
   } = props;
   const classes = useStyles();
-
+  const { t } = useTranslation();
   React.useEffect(() => {
     loadCSS(
       'https://use.fontawesome.com/releases/v5.1.0/css/all.css',
@@ -68,7 +69,7 @@ const PersonFromTeam = (props: DataProps) => {
       />
       <CardContent>
         <Typography gutterBottom={true} variant="h5" component="h2">
-          {nickname}
+          {t(nickname)}
         </Typography>
         <Link className={classes.linkHover} href={`https://github.com/${githubAccount}`} underline='none' target='_blank'>
           <Box display="flex" bgcolor="background.paper">
@@ -83,7 +84,7 @@ const PersonFromTeam = (props: DataProps) => {
           </Box>
         </Link>
         <Typography variant="body2" color="textSecondary" component="p">
-          {contribution}
+          {t(contribution)}
         </Typography>
       </CardContent>
     </Card>

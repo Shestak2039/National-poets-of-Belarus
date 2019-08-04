@@ -23,7 +23,7 @@ const useStyles = makeStyles(() => ({
 
 const LangSelect: FC = () => {
   const classes = useStyles();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleChange = (event: any) => {
     const lang = event.target.value;
@@ -36,13 +36,13 @@ const LangSelect: FC = () => {
       <FormControl className={classes.formControl}>
         <Select value={i18n.language} onChange={handleChange}>
           <MenuItem value="en">
-            en
+            {t('en')}
           </MenuItem>
           <MenuItem value="ru">
-            ru
+            {t('ru')}
           </MenuItem>
           <MenuItem value="be">
-            be
+            {t('be')}
           </MenuItem>
         </Select>
       </FormControl>
