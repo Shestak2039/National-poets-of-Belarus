@@ -16,7 +16,7 @@ const useStyles = makeStyles(() => ({
     '@media screen and (max-width: 560px)': {
       position: 'absolute',
       right: '10px',
-      bottom: '10px'
+      bottom: '20px'
     }
   }
 }));
