@@ -65,6 +65,7 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
+        {this.state.filterIsOpen ? <SearchFilter handleFilter={this.changeFilter} handleClose={this.handleClose} filterValue={this.state.filterValue} /> : null}
         {authors.length ? <AuthorsList authors={authors} data={data}/> : <SearchFallback />}
       </>
     )
