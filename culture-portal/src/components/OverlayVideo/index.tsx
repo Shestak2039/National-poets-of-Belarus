@@ -16,6 +16,8 @@ const useStyles = makeStyles(() =>
     image: {
       transition: 'all 0.3s linear',
       cursor: 'pointer',
+      width: '100%',
+      maxWidth: '480px',
       boxShadow: '0px 0px 5px black',
       margin: '10px 0',
       '&:hover + span': {
