@@ -96,7 +96,7 @@ const Author = ({ data }: { data: any }): JSX.Element  => {
         <Grid container spacing={3}>
           <Grid item lg={6} xs={12}>
             <Typography component='p'>{t(description)}</Typography>
-            <Typography component='p' className={classes.dateLife}><strong>{t('Years of life: ')}</strong> {yearsOfLife}</Typography>
+            <Typography component='p' className={classes.dateLife}><strong>{t('Years of life: ')}</strong> {t(yearsOfLife)}</Typography>
           </Grid>
           <Grid item lg={6} xs={12}>
             <div className={classes.containerAvatar}>
