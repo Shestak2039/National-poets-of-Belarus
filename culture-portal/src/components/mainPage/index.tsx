@@ -41,34 +41,38 @@ const useStyles = makeStyles(() => {
 export default function MainPage(props: Props): JSX.Element {
   const { t } = useTranslation();
   const classes = useStyles();
-  const randomAuthor = Math.floor(Math.random() * (props.prev[0].fields.list.length - 1));
 
   if (props.main.length === 0) {
     return <div />;
   }
+
   if (props.prev.length === 0) {
     return <div />;
   }
 
+  const randomAuthor = Math.floor(Math.random() * (props.prev[0].fields.list.length - 1));
+  const { name, description, picture, button, slag } = props.prev[0].fields.list[randomAuthor].fields;
+  const {headline, paragraph1, paragraph2, blockTitle} = props.main[0].fields;
+  const urlPicture = picture.fields.file.url;
+
   return (
     <div className={classes.container}>
       <div className={classes.description}>
-        <Typography component="h2" className={classes.descriptionHeader}>{t(props.main[0].fields.headline)}</Typography>
+        <Typography component="h2" className={classes.descriptionHeader}>{t(headline)}</Typography>
         <Typography component="p" className={classes.descriptionText}>
-          {t(props.main[0].fields.paragraph1)}
+          {t(paragraph1)}
         </Typography>
         <Typography component="p" className={classes.descriptionText}>
-          {t(props.main[0].fields.paragraph2)}
+          {t(paragraph2)}
         </Typography>
       </div>
       <AuthorPreview
-        title={props.main[0].fields.blockTitle}
-        name={props.prev[0].fields.list[randomAuthor].fields.name}
-        description={props.prev[0].fields.list[randomAuthor].fields.description}
-        picture={props.prev[0].fields.list[randomAuthor].fields.picture.fields.file.url}
-        button={props.prev[0].fields.list[randomAuthor].fields.button}
-        link={props.authors}
-        slag={props.prev[0].fields.list[randomAuthor].fields.slag}
+        title={blockTitle}
+        name={name}
+        description={description}
+        picture={urlPicture}
+        button={button}
+        slag={slag}
       />
     </div>
   );
