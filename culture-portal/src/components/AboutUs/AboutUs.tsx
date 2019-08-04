@@ -1,67 +1,47 @@
 import React from 'react';
+import {useTranslation} from 'react-i18next';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, createStyles } from '@material-ui/core/styles';
-
 import PersonFromTeam from './personFromTeam/PersonFromTeam';
-
 import './about-us.css';
 
 const useStyles = makeStyles(() =>
   createStyles({
     title: {
-      fontWeight: 600,
-      marginTop: '40px',
+      marginTop: '40px !important',
     },
   }),
 );
 
-const AboutUs = () => {
+
+
+const AboutUs = ({ data }: { data: any }) => {
   const classes = useStyles();
+  const { t } = useTranslation();
+  if (data.length === 0) {
+    return null;
+  }
+  const listOfUs = data[0].fields.creatersList.map((el: any) => {
+    return (
+      <PersonFromTeam
+        key={el.sys.id}
+        photo={el.fields.photo.fields.file.url}
+        githubAccount={el.fields.nicname}
+        nickname={el.fields.name}
+        contribution={el.fields.contribution}
+      />
+    )
+  });
   return (
     <>
-      <Typography className={classes.title} align='center' variant="h4" component="h2">
-        About us
+      <Typography className={classes.title} align='center' variant="h3" component="h2">
+        {t('About us')}
       </Typography>
       <ul className="about-us__team-description">
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
-        <PersonFromTeam
-          photo="Something photo"
-          githubAccount="Shestak2039"
-          nickname="Shestakov Vladislav"
-          contribution="Something contribution contribution contribution contribution contribution contribution contribution contribution"
-        />
+        {listOfUs}
       </ul>
     </>
   );
-}
+};
 
 export default AboutUs;

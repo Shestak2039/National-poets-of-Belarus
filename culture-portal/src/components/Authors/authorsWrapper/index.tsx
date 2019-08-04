@@ -7,7 +7,7 @@ import AuthorsList from './AuthorsList/AuthorList';
 import i18n from '../../../i18n';
 import SearchFallback from './searchForm/SearchFallback/SearchFallback';
 
-type AuthorsProps = {authors: any };
+type AuthorsProps = {authors: any, data: any };
 
 interface AuthorsState {
   authorsList?: Array<object>,
@@ -28,7 +28,10 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
   handleSearch = (e: any) => {
     const searchResult = [...this.props.authors].filter(item => {
       const authorName = i18n.t(item.fields.nameAuthor).toLowerCase();
+      // console.log('name', authorName);
       const searchData = e.target.value.toLowerCase();
+      // console.log('data', searchData);
+      // console.log('return', authorName.includes(searchData));
       return authorName.includes(searchData);
     });
     this.setState({
@@ -39,13 +42,19 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
   handleFocus = (flag: boolean) => {
     this.setState({filterIsOpen: flag ? true : false}); // if e.target !== filter => false
   }
+  componentWillUpdate() {
+    console.log('upd');
+  }
 
   render() {
-    const authors = this.state === null ? this.props.authors : this.state.authorsList;
+    const authors = this.state.authorsList || this.props.authors;
+    const { data } = this.props;
+    console.log(authors);
+    console.log(data);
     return (
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
-        {authors.length ? <AuthorsList authors={authors} /> : <SearchFallback />}
+        {authors.length ? <AuthorsList authors={authors} data={data}/> : <SearchFallback />}
       </>
     )
   }

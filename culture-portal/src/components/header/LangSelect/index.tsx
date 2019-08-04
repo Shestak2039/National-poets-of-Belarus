@@ -15,15 +15,15 @@ const useStyles = makeStyles(() => ({
     alignContent: 'center',
     '@media screen and (max-width: 560px)': {
       position: 'absolute',
-      right: '0',
-      top: '100px'
+      right: '10px',
+      bottom: '10px'
     }
   }
 }));
 
 const LangSelect: FC = () => {
   const classes = useStyles();
-  const { i18n } = useTranslation();
+  const { i18n, t } = useTranslation();
 
   const handleChange = (event: any) => {
     const lang = event.target.value;
@@ -31,19 +31,18 @@ const LangSelect: FC = () => {
       i18n.changeLanguage(lang);
     }
   };
-
   return (
     <div className={classes.root}>
       <FormControl className={classes.formControl}>
         <Select value={i18n.language} onChange={handleChange}>
           <MenuItem value="en">
-            en
+            {t('en')}
           </MenuItem>
-          <MenuItem value="ru-RU">
-            ru
+          <MenuItem value="ru">
+            {t('ru')}
           </MenuItem>
           <MenuItem value="be">
-            be
+            {t('be')}
           </MenuItem>
         </Select>
       </FormControl>

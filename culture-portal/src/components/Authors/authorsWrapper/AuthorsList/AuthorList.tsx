@@ -1,21 +1,35 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import AuthorPreview from '../../../authorPreview';
 import './author-list.css';
 
-const AuthorList = ({ authors = [] } : {authors: any }) => {
-  const { t } = useTranslation();
+const AuthorList = ({ authors = [], data }: { authors: any, data: any }) => {
+
+  // if (data.length === 0) {
+  //   return null;
+  // }
+  // console.log(data[0].fields.list[0].fields.name);
+  const list = authors.map((author: any, index: number) => {
+    return (
+      <li key={author.fields.slug} className="authors-list__item">
+        {/* <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link> */}
+        <AuthorPreview
+          title=""
+          name={author.fields.nameAuthor}
+          description={author.fields.description}
+          picture={author.fields.picture.fields.file.url}
+          button='Go to author'
+          link={authors}
+          slag={author.fields.slug}
+        />
+      </li>
+    )
+  })
 
   return (
     <ul>
-    {authors.map((author: any) => (
-      <li key={author.fields.slug} className="authors-list__item">
-        <Link to={`/authors/${author.fields.slug}`}>{t(author.fields.nameAuthor)}</Link>
-      </li>
-      ))
-    }
+      {list}
     </ul>
   );
 };
