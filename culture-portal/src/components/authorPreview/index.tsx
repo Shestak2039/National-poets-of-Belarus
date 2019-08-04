@@ -106,7 +106,7 @@ export default function AuthorPreview(props: Props): JSX.Element {
 
   const classes = useStyles();
   const { t } = useTranslation();
-  const {title, name, description, slag, button, picture} = props;
+  const { title, name, description, slag, button, picture } = props;
 
   return (
     <div className={classes.container}>

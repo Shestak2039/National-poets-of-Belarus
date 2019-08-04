@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     fontSize: '48px',
     color: '#3F51B5'
   },
-  mainContainer:{
+  mainContainer: {
     maxWidth: '1200px',
     marginBottom: '60px',
   },
@@ -81,31 +81,32 @@ const useStyles = makeStyles({
       },
     }
   }
-}, {index: 2});
+}, { index: 2 });
 
-const Author = ({ data }: { data: any }): JSX.Element  => {
-  const classes = useStyles();
+const Author = ({ data }: { data: any }): JSX.Element => {
 
   useEffect(() => {
+    window.scrollTo(0, 0);
     document.title = data.nameAuthor;
   });
 
+  const classes = useStyles();
   const { nameAuthor, yearsOfLife, description, picture  } = data;
   const urlPicture = picture.fields.file.url;
-  const { works } =  data.works.fields;
+  const { works } = data.works.fields;
   const { t } = useTranslation();
   return (
     <>
       <Container maxWidth='lg' className={classes.mainContainer}>
         <Typography align='center' component='h1' className={classes.pageTitle} > {t(nameAuthor)} </Typography>
-        <Grid container spacing={3}>
-          <Grid item lg={6} xs={12}>
+        <Grid container={true} spacing={3}>
+          <Grid item={true} lg={6} xs={12}>
             <Typography component='p'>{t(description)}</Typography>
             <Typography component='p' className={classes.dateLife}><strong>{t('Years of life: ')}</strong> {t(yearsOfLife)}</Typography>
           </Grid>
-          <Grid item lg={6} xs={12}>
+          <Grid item={true} lg={6} xs={12}>
             <div className={classes.containerAvatar}>
-              <Avatar alt={t(data.nameAuthor)}  src={urlPicture} className={classes.postAvatar} />
+              <Avatar alt={t(data.nameAuthor)} src={urlPicture} className={classes.postAvatar} />
             </div>
           </Grid>
         </Grid>
@@ -127,7 +128,7 @@ const Author = ({ data }: { data: any }): JSX.Element  => {
         <Foto data={data} />
       </section>
       <YandexMap coordinates={data.map.coordinates} />
-     </>
+    </>
   )
 };
 
