@@ -77,6 +77,7 @@ export default function MainPage(props: Props): JSX.Element {
         picture={urlPicture}
         button={button}
         slag={slag}
+        link=''
       />
     </div>
   );

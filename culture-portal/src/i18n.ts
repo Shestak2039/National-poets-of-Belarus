@@ -21,7 +21,7 @@ i18n
     nsSeparator: '|',
     saveMissing: true,
     interpolation: {
-      // escapeValue: false
+      escapeValue: false
     },
   });
 

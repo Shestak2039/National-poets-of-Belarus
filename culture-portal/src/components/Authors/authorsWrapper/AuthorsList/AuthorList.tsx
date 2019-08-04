@@ -1,31 +1,29 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 import AuthorPreview from '../../../authorPreview';
+import './author-list.css';
 
-const AuthorList = ({ data }: { data: any }) => {
-
+const AuthorList = ({ authors = [], data }: { authors: any, data: any }) => {
   if (data.length === 0) {
-    return null;
+    return <div />;
   }
-
-  const listAuthors = data[0].fields.list;
-  const list = listAuthors.map((author: any) => {
-    const { name, description, picture, button, slag } = author.fields;
-    const urlPicture = picture.fields.file.url;
-
+  const list = authors.map((author: any, index: number) => {
+    const { url } = data[0].fields.list[index].fields.picture.fields.file;
     return (
-      <li key={slag} className="authors-list__item">
+      <li key={author.fields.slug} className="authors-list__item">
         <AuthorPreview
           title=""
-          name={name}
-          description={description}
-          picture={urlPicture}
-          button={button}
-          slag={slag}
+          name={author.fields.nameAuthor}
+          description={author.fields.description}
+          picture={url}
+          button='Go to author'
+          link={authors}
+          slag={author.fields.slug}
         />
       </li>
     )
-  });
+  })
 
   return (
     <ul>
@@ -34,5 +32,8 @@ const AuthorList = ({ data }: { data: any }) => {
   );
 };
 
-export default AuthorList;
+AuthorList.propTypes = {
+  authors: PropTypes.instanceOf(Array)
+};
 
+export default AuthorList;
