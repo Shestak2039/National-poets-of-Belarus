@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import SearchFilter from './searchForm/searchFilter/SearchFilter';
+
 
 import PropTypes from 'prop-types';
 
@@ -11,7 +13,8 @@ type AuthorsProps = {authors: any, data: any };
 
 interface AuthorsState {
   authorsList?: Array<object>,
-  filterIsOpen: boolean
+  filterIsOpen: boolean,
+  filterValue: string,
 }
 
 class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
@@ -21,18 +24,16 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
     this.state = {
       filterIsOpen: false,
       authorsList: props.authors,
+      filterValue: 'nameAuthor',
     }
   }
   static propTypes: { authors: PropTypes.Validator<unknown[]>; };
 
   handleSearch = (e: any) => {
     const searchResult = [...this.props.authors].filter(item => {
-      const authorName = i18n.t(item.fields.nameAuthor).toLowerCase();
-      // console.log('name', authorName);
+      const itemForSearch = i18n.t(item.fields[this.state.filterValue]).toLowerCase();
       const searchData = e.target.value.toLowerCase();
-      // console.log('data', searchData);
-      // console.log('return', authorName.includes(searchData));
-      return authorName.includes(searchData);
+      return itemForSearch.includes(searchData);
     });
     this.setState({
       authorsList: searchResult,
@@ -40,13 +41,33 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
   }
 
   handleFocus = (flag: boolean) => {
-    this.setState({filterIsOpen: flag ? true : false}); // if e.target !== filter => false
+    this.setState({
+      filterIsOpen: true,
+    });
+  }
+
+  changeFilter = (value: any) => {
+    this.setState({
+      filterValue: value,
+    })
+  }
+
+  handleClose = (e: any) => {
+    console.log(e.target);
+    this.setState({
+      filterIsOpen: false,
+    })
+  }
+
+  componentWillUpdate() {
+    console.log('update');
   }
   componentWillUpdate() {
     console.log('upd');
   }
 
   render() {
+<<<<<<< HEAD
     const authors = this.state.authorsList || this.props.authors;
     const { data } = this.props;
     console.log(authors);
@@ -55,6 +76,15 @@ class AuthorsWrapper extends Component<AuthorsProps, AuthorsState> {
       <>
         <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
         {authors.length ? <AuthorsList authors={authors} data={data}/> : <SearchFallback />}
+=======
+    const authors = this.state === null ? this.props.authors : this.state.authorsList;
+    console.log(authors);
+    return (
+      <>
+        <SearchForm changeHandler={this.handleSearch}  focusHandler={this.handleFocus} />
+        {this.state.filterIsOpen ? <SearchFilter handleFilter={this.changeFilter} handleClose={this.handleClose} filterValue={this.state.filterValue} /> : null}
+        {authors.length ? <AuthorsList authors={authors} /> : <p>Sorry. We're didn't find anything :(</p>}
+>>>>>>> feature/search-filter
       </>
     )
   }

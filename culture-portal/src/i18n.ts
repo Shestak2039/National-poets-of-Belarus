@@ -21,8 +21,10 @@ i18n
     nsSeparator: '|',
     saveMissing: true,
     interpolation: {
-      // escapeValue: false
+      escapeValue: false
     },
+    keySeparator: '>',
+    nsSeparator: '|',
   });
 
 export default i18n;
