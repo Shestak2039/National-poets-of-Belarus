@@ -1,7 +1,6 @@
 import React from 'react';
 
 import AuthorPreview from '../../../authorPreview';
-import './author-list.css';
 
 const AuthorList = ({ data }: { data: any }) => {
 
