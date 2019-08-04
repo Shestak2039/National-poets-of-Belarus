@@ -1,64 +1,56 @@
-import React from "react";
-import { makeStyles, Theme, createStyles } from '@material-ui/core/styles';
-import { AppBar, Tab } from '@material-ui/core';
-import { NavLink } from "react-router-dom";
-import {useTranslation} from "react-i18next";
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import { Button } from '@material-ui/core';
+import { NavLink } from 'react-router-dom';
+import {useTranslation} from 'react-i18next';
 
-
-function a11yProps(index: any) {
-  return {
-    id: `simple-tab-${index}`,
-    'aria-controls': `simple-tabpanel-${index}`,
-  };
-}
-
-const useStyles = makeStyles((theme: Theme) =>
-  createStyles({
-    root: {
-      flexGrow: 1,
-      backgroundColor: theme.palette.background.paper,
-    },
-    headerMenu: {
+const useStyles = makeStyles(() => {
+  return ({
+    menu: {
       flexDirection: 'row',
       backgroundColor: 'white',
-      boxShadow: 'none',
-      '@media screen and (max-width: 560px)': {
-        flexDirection: 'column',
-        margin: '0 auto'
-      }
+      boxShadow: 'none'
     },
-    button: {
+    link: {
+      padding: '11px 25px',
+      borderRadius: '5px',
+      color: 'rgba(0, 0, 0, 0.6)',
+      textTransform: 'capitalize',
+      width: '100%',
       '&:hover': {
         backgroundColor: 'rgba(89, 114, 255, 0.4)',
-        color: '#3f51b5',
+        color: 'rgba(89, 114, 255, 0.8)',
       },
-      borderRadius: '5px',
-    },
-    navLink: {
       '&.active': {
-        backgroundColor: 'rgba(89, 114, 255, 0.4)',
-        color: '#3f51b5 !important',
-        padding: '10.5px 0px 16px 0px',
-        borderRadius: '5px',
-      },
+        backgroundColor: '#3f51b5',
+        color: '#fff',
+      }
     }
-  }),
-);
+  });
+}, { index: 2 });
 
 export default function SimpleTabs() {
   const classes = useStyles();
   const { t } = useTranslation();
 
   return (
-    <nav className="nav">
-      <ul className="navigation">
-        <div className={classes.root}>
-          <AppBar className={classes.headerMenu} position="static">
-            <li className="navigation__link"><NavLink exact to="/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label={t('Main')} {...a11yProps(0)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/authors/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label={t('Authors')} {...a11yProps(1)} /></NavLink></li>
-            <li className="navigation__link"><NavLink to="/about-us/" activeClassName='active' className={classes.navLink}><Tab className={classes.button} label={t('About us')} {...a11yProps(2)} /></NavLink></li>
-          </AppBar>
-        </div >
+    <nav className='nav'>
+      <ul className='navigation'>
+            <li className='navigation__link'>
+              <Button exact component={NavLink} to='/' activeClassName='active' className={classes.link}>
+                {t('Main')}
+              </Button>
+            </li>
+            <li className='navigation__link'>
+              <Button exact component={NavLink} to='/authors/' activeClassName='active' className={classes.link}>
+                {t('Authors')}
+              </Button>
+            </li>
+            <li className='navigation__link'>
+              <Button exact component={NavLink} to='/about-us/' activeClassName='active' className={classes.link}>
+                {t('About us')}
+              </Button>
+            </li>
       </ul>
     </nav>
   );
