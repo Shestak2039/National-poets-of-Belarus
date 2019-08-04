@@ -1,9 +1,11 @@
+import { useTranslation } from "react-i18next";
 import Typography from "@material-ui/core/Typography/";
 import Button from '@material-ui/core/Button';
 import React from 'react';
 import { makeStyles } from '@material-ui/core/styles';
-import { Props } from "./props";
 import { Link } from 'react-router-dom';
+import { Props } from "./props";
+
 
 const useStyles = makeStyles(() => {
   return ({
@@ -103,6 +105,7 @@ const useStyles = makeStyles(() => {
 export default function AuthorPreview(props: Props): JSX.Element {
 
   const classes = useStyles();
+  const { t } = useTranslation();
   if (props.link.length === 0) {
     return <div />;
   }
@@ -110,10 +113,10 @@ export default function AuthorPreview(props: Props): JSX.Element {
   return (
     <div className={classes.container}>
       <div className={classes.description}>
-        <Typography component="h3" className={classes.containerHeader}>{props.title}</Typography>
-        <Typography component="h2" className={classes.containerName}>{props.name}</Typography>
+        <Typography component="h3" className={classes.containerHeader}>{t(props.title)}</Typography>
+        <Typography component="h2" className={classes.containerName}>{t(props.name)}</Typography>
         <Typography component="p" className={classes.containerTextInfo}>
-          {props.description}
+          {t(props.description)}
         </Typography>
         <Button
           variant="contained"
@@ -121,7 +124,7 @@ export default function AuthorPreview(props: Props): JSX.Element {
           size="large"
           className={classes.button}
         >
-          <Link to={`/authors/${props.slag}`} className={classes.buttonLink}>{props.button}</Link>
+          <Link to={`/authors/${props.slag}`} className={classes.buttonLink}>{t(props.button)}</Link>
         </Button>
       </div>
       <div className={classes.imageContainer}>

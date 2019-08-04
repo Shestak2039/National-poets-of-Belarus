@@ -5,7 +5,6 @@ import { makeStyles, createStyles } from '@material-ui/core/styles';
 import PersonFromTeam from './personFromTeam/PersonFromTeam';
 
 import './about-us.css';
-import { async } from 'q';
 
 const useStyles = makeStyles(() =>
   createStyles({
@@ -22,7 +21,6 @@ const AboutUs = ({ data }: { data: any }) => {
   if (data.length === 0) {
     return null;
   }
-  console.log(data[0].fields.creatersList);
   const listOfUs = data[0].fields.creatersList.map((el: any) => {
     return (
       <PersonFromTeam
