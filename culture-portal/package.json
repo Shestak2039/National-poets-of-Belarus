@@ -24,7 +24,7 @@
     "react-dom": "^16.8.6",
     "react-i18next": "^10.11.4",
     "react-router-dom": "^5.0.1",
-    "react-scripts": "3.0.1",
+    "react-scripts": "5.0.1",
     "react-slick": "^0.24.0",
     "react-yandex-maps": "^4.0.1",
     "slick-carousel": "^1.8.1",
